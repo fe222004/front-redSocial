@@ -1,0 +1,85 @@
+<body>
+  <header>
+    <app-menu></app-menu>
+    <app-navar></app-navar>
+  </header>
+
+  <div class="container my-5"> 
+    <div class="row justify-content-center"> 
+      <div class="col-md-8"> 
+        <div class="post-container">
+          <div class="post" *ngFor="let post of post">
+            <div class="post-header">
+              <br>
+              <img [src]="post.user?.image" alt="Profile Picture" class="profile-pic">
+              <div class="name"> {{ post.user?.firstname }} {{ post.user?.lastname }}</div>
+              <div class="username">{{ post.user?.email }}</div>
+            </div>
+            <div style="margin-left: 15px;"> {{ post.text }}</div>
+            <br>
+            <div class="post-img-container">
+              <img [src]="post.image"  alt="Post Image" class="post-img">
+            </div>
+            <br>
+            <div class="post-actions">
+              <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <i class="bi bi-x"></i> Reportar
+              </button>
+            </div>
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Registro de infractor</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <form [formGroup]="logForm">
+                      <div class="mb-3 form-floating">
+                        <input type="text" formControlName="name_offender" class="form-control" id="infractor" name="infractor" placeholder=" ">
+                        <small *ngIf="logForm.controls['name_offender'].hasError('required') && (logForm.controls.name_offender.dirty || logForm.controls.name_offender.touched)" style="color:red">Campo requerido</small>
+                        <label for="infractor">Infractor <i class="bi bi-person-fill"></i></label>
+                      </div>
+                      <div class="mb-3 form-floating">
+                        <textarea class="form-control" formControlName="problem" id="problema" name="problema" rows="3" placeholder=" "></textarea>
+                        <small *ngIf="logForm.controls['problem'].hasError('required') && (logForm.controls.problem.dirty || logForm.controls.problem.touched)" style="color:red">Campo requerido</small>
+                        <div *ngIf="logForm.controls.problem.errors?.['pattern']">
+                          <small style="color:red">Solo espacios y letras</small>
+                        </div>
+                        <label for="problema">Problema <i class="bi bi-chat-left-text-fill"></i></label>
+                      </div>
+                      <div class="mb-3 form-floating">
+                        <input type="date" class="form-control" formControlName="problem_date" id="fecha" name="fecha" placeholder=" ">
+                        <small *ngIf="logForm.controls['problem_date'].hasError('required') && (logForm.controls.problem_date.dirty || logForm.controls.problem_date.touched)" style="color:red">Campo requerido</small>
+                        <label for="fecha">Fecha de queja <i class="bi bi-calendar-date-fill"></i></label>
+                      </div>
+                      <div class="mb-3 form-floating"> 
+                        <input type="time" class="form-control" formControlName="problem_hour" id="hora" name="hora" placeholder=" ">
+                        <small *ngIf="logForm.controls['problem_hour'].hasError('required') && (logForm.controls.problem_hour.dirty || logForm.controls.problem_hour.touched)" style="color:red">Campo requerido</small>
+                        <label for="hora">Hora <i class="bi bi-clock-fill"></i></label>
+                      </div>
+                      <div class="mb-3 form-floating">
+                        <select class="form-select" id="estado" formControlName="severity" name="estado" placeholder=" ">
+                          <option value="leve">Leve</option>
+                          <option value="grave">Grave</option>
+                        </select>
+                        <small *ngIf="logForm.controls['severity'].hasError('required') && (logForm.controls.severity.dirty || logForm.controls.severity.touched)" style="color:red">Campo requerido</small>
+                        <label for="estado">Estado <i class="bi bi-exclamation-triangle-fill"></i></label>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" (click)="reset()">Resetear</button>
+                    <button type="button" class="btn btn-primary" (click)="createForm()">Enviar</button>
+                  </div>
+                  <button type="button" class="btn btn-secondary d-none" data-bs-dismiss="modal" #closeModalButton>Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

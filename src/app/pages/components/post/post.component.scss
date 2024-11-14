@@ -1,0 +1,121 @@
+body {
+  background-color: #f8f9fa;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile-image img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.user {
+  margin-left: 20px;
+}
+
+.user h6 {
+  margin: 0;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+}
+
+.input-group input {
+  flex-grow: 1;
+  border: none;
+  background-color: transparent;
+  height: 60px;
+  padding: 0;
+  font-size: 16px;
+}
+
+.btn-submit {
+  margin-left: 10px;
+}
+
+form {
+  background-color: #fefefe;
+  margin-top: 40px;
+  padding: 20px;
+  border-radius: 10px;
+
+}
+
+
+.image-preview-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  /* Bordes redondeados para la tarjeta */
+  padding: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
+  max-width: 300px;
+  /*Establece el tamaño en imagenes*/
+}
+
+.image-preview-container img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.btn-sm.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border-radius: 50%;
+  border: 1px solid white;
+  background-color: rgb(98, 98, 98);
+  color: white;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.mt-5 {
+  margin-top: 3rem !important;
+}
+
+.input-container {
+  width: 100%; /* Ajusta el ancho del contenedor al 100% */
+  display: flex;
+  justify-content: space-between; /* Alinea los elementos de manera equitativa */
+}
+
+.input-container input {
+  flex-grow: 1; /* Hace que los inputs ocupen todo el espacio restante */
+  margin-right: 10px; /* Espacio entre los inputs */
+}
+
+.buttons {
+  margin-top: 10px; /* Espacio entre el contenedor de inputs y los botones */
+}
+
+.button {
+  display: flex;
+  justify-content: flex-end; /* Alinea los botones a la derecha */
+}
+
+.btn-submit {
+  width: auto; /* Ancho automático para el botón */
+}
+

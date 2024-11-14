@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+}
+
+li {
+	list-style: none;
+}
+
+html {
+	overflow-x: hidden;
+}
+
+body.dark {
+	background: #060714;
+}
+
+body {
+	background: #eee;
+	overflow-x: hidden;
+}
+
+#content {
+	position: relative;
+	width: calc(100% - 280px);
+	left: 280px;
+	transition: .3s ease;
+    margin-left: 10px;
+}
+#sidebar.hide ~ #content {
+	width: calc(100% - 60px);
+	left: 60px;
+}
+
+.masonry {
+    column-count: 3;
+    column-gap: 1rem;
+  }
+  .post {
+    position: relative;
+    margin-bottom: 1rem;
+    display: inline-block;
+    width: 100%;
+    break-inside: avoid;
+  }
+  .post img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+    border-radius: 10px;
+  }
+  .post:hover img {
+    transform: scale(1.1);
+  }
+  .overlay {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    width: 100%;
+    transition: .5s ease;
+    opacity: 0;
+    font-size: 20px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 0 0 10px 10px;
+  }
+  .post:hover .overlay {
+    opacity: 1;
+  }
+  .like-btn {
+    background: none;
+    border: none;
+    color: #f1f1f1;
+    cursor: pointer;
+  }
+  .footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #f1f1f1;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }

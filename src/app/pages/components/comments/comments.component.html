@@ -1,0 +1,35 @@
+<div class="modal" *ngIf="isVisible">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <h2>Comentarios</h2>
+    <div class="comments-section">
+
+      @for(comment of comments; track comment.id){
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <div class="header">
+            <div class="profile-image">
+              <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg" alt="Profile Picture">
+            </div>
+            <div class="user">
+              <h6>Joss Balarezo</h6>
+              <p class="card-text" style="font-size: 15px;">
+                <small class="text-body-secondary">jossy.balarezo21</small>
+              </p>
+            </div>
+          </div>
+            <div class="text">
+              <p>{{comment.comment}}</p>
+            </div>
+            <div class=".comment-actions">
+              <button type="button" class="btn btn-outline-info">Editar</button>
+              <button type="button" class="btn btn-outline-info">Eliminar</button>
+            </div>
+          </li>
+        </ul>
+    }
+
+    </div>
+  </div>
+</div>
+

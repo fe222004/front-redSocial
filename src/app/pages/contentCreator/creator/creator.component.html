@@ -1,0 +1,74 @@
+<body>
+    <div>
+    </div>
+
+    
+    <section id="content">
+        <main>
+            <div class="head-title">
+                <div class="left">
+                    <h1>Dashboard</h1>
+                    <ul class="breadcrumb">
+                        <li><a href="#">Dashboard</a></li>
+                        <li><i class='bx bx-chevron-right'></i></li>
+                        <li><a class="active" href="#">Home</a></li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="table-data">
+                <div class="order">
+
+
+                    <div class="field mb-4 col-6">
+                        <label for="image" class="font-medium text-900"></label>
+                        <div class="upload-container" *ngIf="!imageSrc" (drop)="onDrop($event)"
+                            (dragover)="onDragOver($event)">
+                            <label for="fileInput" class="upload-label">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                Arrastra y suelta una imagen aquí o haz clic para seleccionarla.
+                            </label>
+                            <input type="file" id="fileInput" accept="image/*" formControlName="image"
+                                (change)="getFile($event)" style="display: none;">
+                            <button type="button" pButton label="Choose File" class="p-button-outlined"
+                                (click)="chooseFile()"></button>
+                        </div>
+                        <div class="uploaded-image" *ngIf="imageSrc">
+                            <img [src]="imageSrc" alt="Vista previa de la imagen">
+                            <button type="button" pButton label="Change Image" class="btn btn-warning"
+                                style="margin-top: 5px;" (click)="clearImage()">Change Image</button>
+                        </div>
+                    </div>
+                    <form class="publication-form" [formGroup]="form">
+                        <div class="form-group">
+                            <label for="text">Descripción</label>
+                            <textarea id="text" class="form-control" rows="3" formControlName="text"
+                                placeholder="Describe tu publicación..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="tags">Etiquetas</label>
+                            <input type="text" id="tags" class="form-control" formControlName="tag"
+                                placeholder="Agrega etiquetas separadas por coma...">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Publicar</button>
+                    </form>
+                </div>
+                <div class="todo">
+                    <div class="head">
+                        <h3>Todos</h3>
+                        <i class='bx bx-plus'></i>
+                        <i class='bx bx-filter'></i>
+                    </div>
+                    <ul class="todo-list">
+                        <li class="completed">
+                            <p>Marco solicita nueva contraseña</p>
+                            <i class='bx bx-dots-vertical-rounded'></i>
+                        </li>
+                        <!-- Más elementos aquí -->
+                    </ul>
+                </div>
+            </div>
+        </main>
+    </section>
+</body>

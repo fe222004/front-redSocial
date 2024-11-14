@@ -1,0 +1,159 @@
+  .stories-title {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 600px;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .stories-title h1 {
+    font-size: 1.8rem;
+  }
+  .stories-title .btn {
+    display: flex;
+    align-items: center;
+    color: #000;
+  }
+  .stories-title .btn i {
+    font-size: 24px;
+    margin-right: 10px;
+  }
+  .stories {
+    display: flex;
+    align-items: center;
+    margin-top: 2rem;
+    gap: 11px;
+  }
+  .stories-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px; //modificacion circulo
+    border-radius: 50%;
+    border: 2px solid #3C91E6;
+    cursor: pointer; 
+    position: relative;
+  }
+  .stories-img img {
+    width: 65px;
+    height: 65px;
+    object-fit: cover;
+    border-radius: 50%;
+    object-position: center;
+  }
+  .stories-img.color {
+    border: 2px solid transparent;
+  }
+  .nav-stories {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    
+  }
+  /*STORIE USER*/
+  .large-image-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8); /* Fondo negro semi-transparente */
+      z-index: 999; /* Asegura que la imagen esté encima de otros elementos */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .large-image {
+      max-width: 80%; /* Ajusta el tamaño máximo de la imagen grande */
+      max-height: 80%; /* Ajusta el tamaño máximo de la imagen grande */
+  }
+
+  .large-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.904); /* Fondo oscuro semitransparente */
+    z-index: 9999;
+  }
+
+  .large-image {
+    border: 2px solid rgb(0, 0, 0); /* Línea blanca alrededor de la imagen */
+    border-radius: 12px; /* Bordes redondeados */
+    overflow: hidden; 
+    width: 30vw; 
+    height: 90vw;
+  }
+
+  .large-image img {
+    width: 100%; /* La imagen toma el 100% del ancho del contenedor */
+    height: 100%; /* La imagen toma el 100% de la altura del contenedor */
+    object-fit: cover; /* Asegura que la imagen cubra el contenedor sin distorsión */
+    display: block;
+    margin: 0 auto; /* Centra la imagen */
+  }
+  .white-line {
+    position: absolute;
+    top: 13%; /* Posiciona la línea en el centro vertical del contenedor */
+    left: 550px;
+    width: 27%;
+    height: 2px; 
+    background-color: rgb(255, 255, 255); /* Color de la línea */
+    transform: translateY(-50%); /* Ajusta para que la línea esté perfectamente centrada */
+  }
+  .select-button {
+    position: absolute;
+    top: 10px; 
+    right: 15px; 
+    background-color: transparent; /* Fondo transparente */
+    color: white;
+    border: none; /* Sin borde */
+    font-size: 30px; /* Tamaño de la fuente más grande */
+    cursor: pointer;
+    height: 40px; 
+    width: 40px; 
+    padding: 8px; 
+  }
+  .profile {
+    position: absolute;
+    bottom: 540px; /* Ajusta la posición vertical del círculo */
+    left: 10px; /* Ajusta la posición horizontal del círculo */
+    margin-left: 530px;
+  }
+  .profile img {
+    width: 40px; /* Ajusta el tamaño de la imagen del usuario */
+    height: 40px;
+    border-radius: 50%; /* Hace que la imagen sea circular */
+  }
+
+  .profile .username {
+    position: relative; 
+    top: -28px; 
+    left: 5vw; /*  asegurar la posición estática */
+    color: white;
+    text-decoration: none;
+  }
+
+  /*CAROUSEL*/
+  .carousel-control-prev,
+  .carousel-control-next {
+    font-size: 1rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); 
+  }
+  .carousel-control-prev {
+    left: -72px; 
+  }
+  .carousel-control-next {
+    right: -72px;
+  }
+

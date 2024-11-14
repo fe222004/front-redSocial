@@ -1,0 +1,44 @@
+<section id="stories">
+  <nav class="nav-stories">
+    <div id="carouselExample" class="carousel slide" style="margin-left: -12px;">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="stories">
+            <!--CARRUSEL STORIES FUNCIONANDO-->
+            <div *ngFor="let story of stories" class="stories-img" (click)="setLargeImage(story)">
+              <img [src]="story.image" [alt]="story.id.toString()"> <!-- Muestra la imagen de la historia -->
+            </div>
+          </div>
+        </div>
+        <!--SEGUNDO CARRUSEL-->
+        <div class="carousel-item">
+          <div class="stories">
+            <div *ngFor="let story of stories" class="stories-img" (click)="setLargeImage(story)">
+              <img [src]="story.image" [alt]="story.id.toString()"> <!-- Muestra la imagen de la historia -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </nav>
+
+  <div *ngIf="showLargeImage" class="large-image-container">
+    <div class="large-image">
+      <img [src]="selectedImage" alt="Imagen Grande">
+      <div class="white-line"></div>
+      <button class="select-button" (click)="toggleShowLargeImage()">X</button>
+      <div class="profile">
+        <img [src]="selectedUserImage" alt="Avatar"> <!-- Muestra la imagen del usuario -->
+        <span class="username">{{selectedUsername}}</span> <!-- Muestra el nombre de usuario -->
+      </div>
+    </div>
+  </div>
+</section>

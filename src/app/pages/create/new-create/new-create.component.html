@@ -1,0 +1,30 @@
+<div *ngIf="showModal" class="modal-backdrop">
+    <div class="modal-content">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="modal-header">
+          <h5 class="modal-title">Crea una nueva publicación</h5>
+          <button type="button" class="close" (click)="closeModal()">&times;</button>
+        </div>
+        <div class="modal-body">
+          <input type="file" id="fileInput" (change)="getFile($event)" style="display: none;">
+          <div class="camera-icon" *ngIf="!imageSrc">
+            <span class="bi bi-images"></span>
+          </div>
+          <div *ngIf="!imageSrc" class="drag-text-container">
+            <p class="drag-text">Arrastra las fotos</p>
+          </div>
+          <button *ngIf="!imageSrc" type="button" class="choose-file-button" (click)="chooseFile()">Seleccionar de la computadora</button>
+          <div class="image-preview" *ngIf="imageSrc">
+            <img [src]="imageSrc" alt="Vista previa de la imagen">
+            <div class="clear-image-button-container">
+              <button type="button" class="clear-image-button" (click)="clearImage()">Descartar</button>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer" style="margin-top: 10pxpx;">
+          <button type="submit" class="btn btn-primary" [disabled]="!form.valid || !imageSrc">Publicar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

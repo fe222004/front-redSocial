@@ -1,0 +1,43 @@
+<div class="d-flex align-items-center justify-content-center min-vh-100 bg-light">
+  <div class="d-flex flex-row align-items-center justify-content-center bg-white p-5 shadow-lg w-75" style="border-radius: 20px; border: 5px solid #007bff;">
+    <div class="d-none d-md-block w-50">
+      <img src="https://marketing4ecommerce.net/wp-content/uploads/2024/02/imagen-generada-con-nightcafe-e1708680739301.jpg" alt="Login Image" class="img-fluid" style="border-radius: 15px;">
+    </div>
+    <div class="d-flex flex-column align-items-center justify-content-center w-50 p-4">
+      <div class="text-center mb-4">
+        <h2 class="text-dark font-weight-bold">Welcome!</h2>
+        <p class="text-muted">Sign in to continue</p>
+      </div>
+
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="w-100">
+        <div class="mb-3">
+          <label for="email1" class="form-label text-dark h5 font-weight-medium">Email</label>
+          <input id="email1" type="email" formControlName="email" placeholder="Email address" class="form-control" style="padding: 0.75rem;">
+          <div style="font-size: smaller; text-align: center">
+            @if(email.errors){ @if(email.touched){
+            @if(email.errors['required']){
+            <span class="p-error" style="color: red;">Este campo es requerido</span>
+            } @if(email.errors['pattern']){
+            <span class="p-error" style="color: red;">Ingrese un correo electrónico
+                válido</span>
+            } } }
+        </div>
+        </div>
+        <div class="mb-4">
+          <label for="password1" class="form-label text-dark h5 font-weight-medium">Password</label>
+          <input id="password1" type="password" formControlName="password" placeholder="Password" class="form-control" style="padding: 0.75rem;">
+          <div style="font-size: smaller; text-align: center">
+            @if(password.errors){ @if(password.touched){
+            @if(password.errors['required']){
+            <span class="p-error" style="color: red;">Este campo es requerido</span>
+            } } } 
+        </div>
+        </div>
+        <div class="d-flex align-items-center justify-content-between mb-4">
+          <button class="btn btn-link text-primary" (click)="navigate()">¿No tienes cuenta? Regístrate</button>
+        </div>
+        <button type="submit" class="btn btn-primary w-100 py-3 h5" [disabled]="loginForm.invalid">Sign In</button>
+      </form>
+    </div>
+  </div>
+</div>

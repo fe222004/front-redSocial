@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+body {
+	background: #eee;
+	overflow-x: hidden;
+}
+
+
+.post {
+   
+    border-radius: 15px;
+    margin-bottom: 20px;
+ 
+    background: #F9F9F9;
+    font-family: 'Poppins', sans-serif;
+    
+  }
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    border-radius: none;
+  }
+
+.post-container{
+  width: 600px;
+  height: 600px;
+ 
+}
+
+  .post-header {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+  }
+  .profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  .username {
+    font-weight: bold;
+  }
+  .post-img {
+    width: 400px;
+    height: 300px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    align-items: center;
+  }
+  .post-actions {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  form {
+    
+    margin-bottom: 20px;
+  }
+  
+  
+  .form-label {
+    
+    color: blue;
+  }
+  
+  .form-control {
+    font-size: 16px;
+  }
+  
+  
+ 
+  .post-img-container {
+    display: flex;
+    justify-content: center;
+}

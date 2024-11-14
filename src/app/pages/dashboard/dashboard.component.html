@@ -1,0 +1,49 @@
+<header>
+  <app-menu></app-menu>
+</header>
+<main>
+  <app-navar></app-navar>
+  <section id="content">
+    <main>
+      <app-stories></app-stories>
+      <div class="table-data" style="margin-left: 280px;">
+      <app-post></app-post>
+    </div>
+      <div class="table-data">
+        <div class="order" *ngFor="let post of posts">
+          <p class="text-body-secondary" style="margin-top: 5px; margin-left: 5px;">
+            <img [src]="post.user?.image || 'assets/default-profile.png'" 
+                 class="rounded-circle" alt="Profile Image" 
+                 style="width: 40px; height: 40px; margin-right: 10px;">
+            {{ post.user?.firstname }} {{ post.user?.lastname }}
+            <br>
+            {{ post.user?.email }}
+            <br><br>
+            <p class="text" style="margin-left: 5px;">
+              {{ post.text }}
+            </p>
+            <img *ngIf="post.image" [src]="post.image" 
+                 class="card-img-top" alt="Post Image" 
+                 style="width: 400px; height: 400px; margin-left: 50px;">
+            <p *ngIf="!post.image" class="text-body-secondary">No hay imagen disponible para este post.</p>
+        </div>
+      </div>
+    </main>
+  </section>
+</main>
+<app-footer></app-footer>
+
+<!-- Subscription Modal -->
+<div class="modal fade" id="subscribeModal" tabindex="-1" aria-labelledby="subscribeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <app-form-suscriptor></app-form-suscriptor>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
