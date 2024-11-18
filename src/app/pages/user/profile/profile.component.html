@@ -1,190 +1,41 @@
 <body>
-
-  <header>
-    <!-- Menu -->
-    <app-menu></app-menu>
-  </header>
   <main>
     <app-navar></app-navar>
-    <section id="content">
-      <main style="display: flex;">
-        <section>
-          <!-- Usuario -->
-          <div class="card" style="width: 700px;">
-            <div class="card-body" style="display: flex;">
-              <div class="profile-image">
-                <img [src]="user.image" class="card-img-top1"
-                  alt={{user.firstname}}>
-
-              </div>
-              <div class="user" style="margin-left: 20px;">
-                <div class="header" style="display: flex;">
-                  <h3>{{user.firstname}} {{user.lastname}}</h3>
-                  <div class="option" style="margin-left: 160px;">
-                    <button type="submit" class="btn btn-outline-info" (click)="navigateToEditUser()">
-                      <a class="edit"  style="color: black; text-decoration: none;">
-                        Editar Perfil
-                      </a>
-                    </button>
-                  </div>
-                </div>
-                <p class="card-text"><small class="text-body-secondary">{{user.email}}</small></p>
-                <p>{{user.description}}</p>
-                <div class="detalles" style="display: flex;">
-                  <!--Seguidores-->
-                  <p style="margin-top: 20px;">220</p>
-                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                    style="border: none; background-color: transparent; color: black; margin-right: 35px;">
-                    Seguidores
-                  </button>
-
-                  <!--Lista Seguidores-->
-                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog" style="width: 450px;">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h1 class="modal-title fs-5" id="exampleModalLabel">Seguidores</h1>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                          <ul class="list-group list-group-flush">
-                            <li class="list-group-item" style="display: flex;">
-                              <div class="profile-image">
-                                <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg"
-                                  style="width: 50px; height: 50px; border-radius: 50%;" alt="...">
-                              </div>
-                              <div class="user" style="margin-left: 20px;">
-                                <h6>{{user.firstname}} {{user.lastname}}</h6>
-                                <p class="card-text" style="font-size: 15px;">
-                                  <small class="text-body-secondary">{{user.email}}</small>
-                                </p>
-                              </div>
-                              <div class="follow" style="margin-left: 90px;">
-                                <button type="button" class="btn btn-outline-info"
-                                  style=" border-radius: 50px; margin-top: 10px;">Remove</button>
-                              </div>
-                            </li>
-                            <li class="list-group-item" style="display: flex;">
-                              <div class="profile-image">
-                                <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg"
-                                  style="width: 50px; height: 50px; border-radius: 50%;" alt="...">
-                              </div>
-                              <div class="user" style="margin-left: 20px;">
-                                <h6>Joss Balarezo</h6>
-                                <p class="card-text" style="font-size: 15px;"><small
-                                    class="text-body-secondary">jossy.balarezo21</small>
-                                </p>
-                              </div>
-                              <div class="follow" style="margin-left: 90px;">
-                                <button type="button" class="btn btn-outline-info"
-                                  style=" border-radius: 50px; margin-top: 10px;">Remove</button>
-                              </div>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!--Seguidos-->
-                  <p style="margin-top: 20px;">20</p>
-                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1"
-                    style="border: none; background-color: transparent; color: black;">
-                    Seguidos
-                  </button>
-
-                  <!--Lista Seguidos-->
-                  <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h1 class="modal-title fs-5" id="exampleModalLabel">Seguidos</h1>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                          ...
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+    <div class="container">
+      <!-- Sección izquierda (perfil del usuario) -->
+      <section class="left-section">
+        <div class="profile">
+          <div class="cover-photo">
+            <img src="https://plus.unsplash.com/premium_photo-1673177667569-e3321a8d8256?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Zm90byUyMGRlJTIwcG9ydGFkYXxlbnwwfHwwfHx8MA%3D%3D" alt="Foto de Portada">
+          </div>
+          <div class="profile-info">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwHf5299P7Ub9mEF3y-KBKsF-kwSRJQUKcyQ&s" alt="Foto de Perfil" class="profile-photo">
+            <h3 class="name">Joss Balarezo</h3>
+            <p class="username">jossbalarezo21</p>
+            <div class="stats">
+              <span><strong>2022</strong> Seguidores</span>
+              <span><strong>590</strong> Seguidos</span>
+              <span><strong>30</strong>Publicaciones</span>
             </div>
+            <p class="description">
+              “No podemos resolver nuestros problemas con el mismo pensamiento que usamos cuando los creamos”. - Albert Einstein
+            </p>
           </div>
-
-          <div class="postear" style="margin-left: 200px;">
-            <app-post></app-post>
-          </div>
-          <!-- Post -->
-          <h3 style="margin-top: 40px; margin-bottom: 20px; margin-left: 200px;">Publicaciones</h3>
-          <!-- POSTS -->
-          @for(post of posts; track post.id){
-          <div class="post">
-            <div class="card" style="width: 700px;">
-              <div class="card-header" style="display: flex;">
-                <div class="profile-image">
-                  <img [src]="post.user?.image" 
-                    style="width: 50px; height: 50px; border-radius: 50%;" alt="...">
-                </div>
-                <div class="user" style="margin-left: 20px;">
-                  <h6>{{post.user?.firstname}}{{post.user?.lastname}}</h6>
-                  <p class="card-text" style="font-size: 15px;"><small
-                      class="text-body-secondary">{{post.user?.email}}</small>
-                  </p>
-                </div>
-              </div>
-              <div class="card-body">
-                <blockquote class="blockquote mb-0">
-                  <p>{{post.text}}</p>
-                  <footer class="blockquote-footer">{{post.tag}}
-                  </footer>
-                </blockquote>
-                <div class="imagen">
-                  <img *ngIf="post.image" [src]="post.image" 
-                  class="card-img-top" alt="Post Image" 
-                  style="width: 400px; height: 400px; margin-left: 50px;">
-             <p *ngIf="!post.image" class="text-body-secondary">No hay imagen disponible para este post.</p>
-                </div>
-              </div>
-              <div class="card-footer">
-                <div class="option">
-                  <div class="coment">
-                    <i class="bi bi-heart"></i>
-                    <button>Like</button>
-                  </div>
-                  <div class="coment">
-                    <i class="bi bi-chat"></i>
-                    <button (click)="openModalComents()">Comentarios</button>
-                      <app-comments>
-                        <p>Comentarios</p>
-                      </app-comments>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer">
-                <div class="coment1">
-                  <div class="photo">
-                    <img [src]="post.user?.image"  alt="...">
-                  </div>
-                  <form [formGroup]="commentForm" (ngSubmit)="onSubmit()" style="display: flex;">
-                    <div class="mb-3">
-                      <input type="text" class="form-control" id="coment" placeholder="Agrega un comentario" formControlName="comment">
-                    </div>
-                    <div class="comentsave">
-                      <button type="submit" class="btn btn-outline-info" (click)="createComent()">Comentar</button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-          }
-
-        </section>
-      </main>
-    </section>
+        </div>
+      </section>
+  
+      <!-- Sección central -->
+      <section class="center-section">
+        <h2>Historias</h2>
+        <p>Contenido principal, como un feed de noticias.</p>
+      </section>
+  
+      <!-- Sección derecha -->
+      <section class="right-section">
+        <h2>Sugerencias</h2>
+        <p>sugerencias de segidores</p>
+      </section>
+    </div>
   </main>
-  <app-footer></app-footer>
+  
 </body>
