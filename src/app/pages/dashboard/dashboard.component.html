@@ -1,8 +1,15 @@
 <header>
-  <app-menu></app-menu>
+  
 </header>
 <main>
   <app-navar></app-navar>
+
+  {{ 'dashboard.title' | translate }}
+
+  <div class="bg-blue-500 text-white p-4">
+    ¡Hola, Tailwind!
+  </div>
+  
   <section id="content">
     <main>
       <app-stories></app-stories>
@@ -25,7 +32,7 @@
             <img *ngIf="post.image" [src]="post.image" 
                  class="card-img-top" alt="Post Image" 
                  style="width: 400px; height: 400px; margin-left: 50px;">
-            <p *ngIf="!post.image" class="text-body-secondary">No hay imagen disponible para este post.</p>
+            <p *ngIf="!post.image" class="text-body-secondary">{{ 'dashboard.title' | translate }}</p>
         </div>
       </div>
     </main>
