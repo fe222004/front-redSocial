@@ -1,21 +1,54 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()" >
-  <h3 class="text-center">Crear Publicación</h3>
+<div class="card post-card">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="input-group mb-3">
+      <!-- Imagen de perfil -->
+      <img class="rounded-circle profile-image"
+        src="https://i.pinimg.com/564x/40/76/79/407679d20088c659aba7a760c69dd7c3.jpg" alt="Profile Image">
 
-  <div class="input-group mb-3">
-    <input type="text" class="form-control" placeholder="Escribe tu publicación" formControlName="text" style="width: 250px;">
-    <input type="text" class="form-control" placeholder="Escribe una etiqueta" formControlName="tag" style="margin-left: 20px; width: 250px;">
-  </div>
+      <!-- Etiqueta ¿Qué está pensando? -->
+      <input type="text" class="form-control" placeholder="¿Qué estás pensando, Niurka?" formControlName="text"
+        style="border-radius: 35px;" [ngClass]="{ 'd-none': imageSrc }" />
 
-  <div class="input-group mb-3" style="margin-left: 100px;">
-    <button type="button" class="btn btn-transparent" (click)="chooseFile()">Seleccionar Imagen</button>
-    <input type="file" id="fileInput" (change)="getFile($event)" style="display: none;">
-  </div>
+      <!-- Campo de etiqueta (solo si se selecciona imagen) -->
+      <ng-container *ngIf="imageSrc">
+        <span class="user-name">Niurka Cóndor</span>
+        <input type="text" class="form-control custom-input" placeholder="¿Qué estás pensando, Niurka?" formControlName="tag"
+          style="border-radius: 35px;" />
+      </ng-container>
+    </div>
 
-  <!-- Previsualización de imagen seleccionada -->
-  <div *ngIf="imageSrc" class="image-preview-container">
-    <img [src]="imageSrc" alt="Imagen seleccionada" class="img-fluid rounded">
-    <button type="button" class="btn btn-danger" (click)="clearImage()">Limpiar</button>
-  </div>
+    <!-- Botones para seleccionar imagen y video -->
+    <div class="input-group mb-3" *ngIf="!imageSrc">
+      <div class="button-group">
+        <!-- Botón de imagen -->
+        <button type="button" class="btn-select-post" (click)="chooseFile()">
+          <i class="bi bi-image"></i>
+          <span style="margin-left: 8px;">Imagen</span>
+        </button>
 
-  <button type="submit" class="btn btn-primary" style="margin-left: 150px;">Postear</button>
-</form>
+        <!-- Botón de video verificar si va -->
+        <button type="button" class="btn-select-post">
+          <i class="bi bi-camera-video-fill"></i>
+          <span style="margin-left: 8px;">Video</span>
+        </button>
+      </div>
+
+
+      <!-- Input para archivo oculto -->
+      <input type="file" id="fileInput" (change)="getFile($event)" style="display: none;" />
+    </div>
+
+
+    <!-- Previsualización de imagen seleccionada -->
+    <div *ngIf="imageSrc" class="image-preview-container">
+      <img [src]="imageSrc" alt="Imagen seleccionada" class="img-fluid rounded" />
+    </div>
+    <!-- Botones de limpiar y publicar -->
+    <div *ngIf="imageSrc" class="button-group">
+      <button type="button" class="btn-circle btn-danger" (click)="clearImage()"><p>x</p></button>
+      <button type="submit" class="btn btn-primary">Publicar</button>
+    </div>
+  </form>
+</div>
+
+<!--Verificar que mas se puede implementar-->

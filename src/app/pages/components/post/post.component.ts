@@ -16,6 +16,7 @@ export class PostComponent implements OnInit {
 
   form: FormGroup;
   imageSrc: string | ArrayBuffer | null = null;
+  isTagInputVisible: boolean = false;
 
   constructor() {
     this.form = this.buildForm();
@@ -47,6 +48,7 @@ export class PostComponent implements OnInit {
         const result = e.target?.result;
         if (result) {
           this.imageSrc = result;
+          this.isTagInputVisible = true; //Mustra el campo de etiqueta
         }
       };
       reader.readAsDataURL(file);
@@ -56,6 +58,7 @@ export class PostComponent implements OnInit {
 
   clearImage() {
     this.imageSrc = null;
+    this.isTagInputVisible = false; //Oculta la etiqueta 
     this.form.get('image')?.setValue(null);
   }
 

@@ -10,32 +10,42 @@
       </div>
 
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="w-100">
+        <!-- Campo de Email -->
         <div class="mb-3">
           <label for="email1" class="form-label text-dark h5 font-weight-medium">Email</label>
           <input id="email1" type="email" formControlName="email" placeholder="Email address" class="form-control" style="padding: 0.75rem;">
-          <div style="font-size: smaller; text-align: center">
-            @if(email.errors){ @if(email.touched){
-            @if(email.errors['required']){
-            <span class="p-error" style="color: red;">Este campo es requerido</span>
-            } @if(email.errors['pattern']){
-            <span class="p-error" style="color: red;">Ingrese un correo electrónico
-                válido</span>
-            } } }
+          
+          <!-- Alerta de Error para el Email -->
+          <div *ngIf="email.errors && email.touched" class="alert alert-danger small mt-2 alert-with-arrow" role="alert">
+            <i class="bi bi-exclamation-triangle-fill me-2" style="font-size: 20px;"></i> <!--Icono de alerta-->
+            @if(email.errors['required']) {
+              <span>Este campo es requerido</span>
+            } @if(email.errors['pattern']) {
+              <span>Ingrese un correo electrónico válido</span>
+            }
+          </div>
         </div>
-        </div>
+
+        <!-- Campo de Contraseña -->
         <div class="mb-4">
           <label for="password1" class="form-label text-dark h5 font-weight-medium">Password</label>
           <input id="password1" type="password" formControlName="password" placeholder="Password" class="form-control" style="padding: 0.75rem;">
-          <div style="font-size: smaller; text-align: center">
-            @if(password.errors){ @if(password.touched){
-            @if(password.errors['required']){
-            <span class="p-error" style="color: red;">Este campo es requerido</span>
-            } } } 
+          
+          <!-- Alerta de Error para la Contraseña -->
+          <div *ngIf="password.errors && password.touched" class="alert alert-danger small mt-2 alert-with-arrow" role="alert">
+            <i class="bi bi-exclamation-triangle-fill me-2" style="font-size: 20px;"></i>
+            @if(password.errors['required']) {
+              <span>Este campo es requerido</span>
+            }
+          </div>
         </div>
-        </div>
+
+        <!-- Enlace para Regístrate -->
         <div class="d-flex align-items-center justify-content-between mb-4">
           <button class="btn btn-link text-primary" (click)="navigate()">¿No tienes cuenta? Regístrate</button>
         </div>
+
+        <!-- Botón de Enviar -->
         <button type="submit" class="btn btn-primary w-100 py-3 h5" [disabled]="loginForm.invalid">Sign In</button>
       </form>
     </div>
