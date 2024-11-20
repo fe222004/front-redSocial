@@ -8,6 +8,30 @@
         </div>
     </form>
 
+
+    <div class="hidden lg:flex lg:ml-4">
+        <div class="relative w-20 max-w-sm" (clickOutside)="closeMenu()">
+          <button (click)="toggleMenuI()"
+            class="flex items-center text-gray-600 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700">
+            <img [src]="getFlagUrl(currentLanguage)" alt="Current Language"
+              class="h-3 w-3 rounded-full">
+            <span class="ml-1 text-[10px] font-medium">{{ currentLanguage.toUpperCase() }}</span>
+          </button>
+          <div *ngIf="showMenuI" class="absolute right-0 mt-1 w-20 bg-white border border-gray-300 rounded-lg shadow-md">
+            <a href="#" (click)="changeLanguage('en', $event)"
+              class="flex items-center px-2 py-1 text-gray-600 hover:bg-gray-100">
+              <img [src]="getFlagUrl('en')" alt="English" class="h-3 w-3 rounded-full">
+              <span class="ml-1 text-[10px] font-medium">English</span>
+            </a>
+            <a href="#" (click)="changeLanguage('es', $event)"
+              class="flex items-center px-2 py-1 text-gray-600 hover:bg-gray-100">
+              <img [src]="getFlagUrl('es')" alt="Spanish" class="h-3 w-3 rounded-full">
+              <span class="ml-1 text-[10px] font-medium">Español</span>
+            </a>
+          </div>
+        </div>
+    </div>
+      
     <a (click)="navigateToProfile()" class="profile">
         <img src="https://i.pinimg.com/564x/40/76/79/407679d20088c659aba7a760c69dd7c3.jpg">
     </a>

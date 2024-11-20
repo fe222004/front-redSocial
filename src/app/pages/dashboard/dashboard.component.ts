@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { PostI } from '../../models/post.interface';
 import { PostService } from '../../services/post.service';
 import { Router } from '@angular/router';
+import { TranslationService } from '../../services/translation.service';
 
 
 @Component({
@@ -16,7 +17,8 @@ export class DashboardComponent {
   selectedUsername: string = '';
   selectedUserImage: string = '';
 
-  constructor(private postService: PostService, private router: Router) {}
+  constructor(private translationService: TranslationService,
+    private postService: PostService, private router: Router) {}
 
   ngOnInit(): void {
     this.fetchPosts();
