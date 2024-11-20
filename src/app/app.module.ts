@@ -40,6 +40,14 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { combineLatest } from 'rxjs';
 import { CommentsComponent } from './pages/components/comments/comments.component';
 
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -79,6 +87,14 @@ import { CommentsComponent } from './pages/components/comments/comments.componen
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    TranslateModule.forRoot({
+      defaultLanguage: 'es',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
   ],
   providers: [provideClientHydration()],
   bootstrap: [AppComponent],
