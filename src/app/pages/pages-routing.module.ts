@@ -13,6 +13,7 @@ import { CustomerListComponent } from './customer-support/customer-list/customer
 import { CreatorComponent } from './contentCreator/creator/creator.component';
 import { SurveyComponent } from './components/survey/survey.component';
 import { CommentsComponent } from './components/comments/comments.component';
+import { NavarComponent } from './components/navar/navar.component';
 
 const routes: Routes = [
   {
@@ -78,6 +79,10 @@ const routes: Routes = [
   {
     path: 'post',
     component: PostComponent
+
+  },{
+    path: 'nav',
+    component: NavarComponent
 
   },
   {
