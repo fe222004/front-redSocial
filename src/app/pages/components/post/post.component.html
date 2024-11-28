@@ -6,14 +6,15 @@
         src="https://i.pinimg.com/564x/40/76/79/407679d20088c659aba7a760c69dd7c3.jpg" alt="Profile Image">
 
       <!-- Etiqueta ¿Qué está pensando? -->
-      <input type="text" class="form-control" placeholder="¿Qué estás pensando, Niurka?" formControlName="text"
+      <input type="text" class="form-control" [placeholder]="'post.post-text' | translate" formControlName="text"
         style="border-radius: 35px;" [ngClass]="{ 'd-none': imageSrc }" />
+      <div *ngIf="!imageSrc" class="separator"></div>
 
       <!-- Campo de etiqueta (solo si se selecciona imagen) -->
       <ng-container *ngIf="imageSrc">
         <span class="user-name">Niurka Cóndor</span>
-        <input type="text" class="form-control custom-input" placeholder="¿Qué estás pensando, Niurka?" formControlName="tag"
-          style="border-radius: 35px;" />
+        <input type="text" class="form-control custom-input" placeholder="¿ Niurka?"
+          formControlName="tag" style="border-radius: 35px;" />
       </ng-container>
     </div>
 
@@ -23,7 +24,7 @@
         <!-- Botón de imagen -->
         <button type="button" class="btn-select-post" (click)="chooseFile()">
           <i class="bi bi-image"></i>
-          <span style="margin-left: 8px;">Imagen</span>
+          <span style="margin-left: 8px;">{{ 'post.image-icon' | translate }}</span> <!--TERMINAR EL BOTON DEL POST-->
         </button>
 
         <!-- Botón de video verificar si va -->
@@ -33,11 +34,9 @@
         </button>
       </div>
 
-
       <!-- Input para archivo oculto -->
       <input type="file" id="fileInput" (change)="getFile($event)" style="display: none;" />
     </div>
-
 
     <!-- Previsualización de imagen seleccionada -->
     <div *ngIf="imageSrc" class="image-preview-container">
@@ -45,10 +44,10 @@
     </div>
     <!-- Botones de limpiar y publicar -->
     <div *ngIf="imageSrc" class="button-group">
-      <button type="button" class="btn-circle btn-danger" (click)="clearImage()"><p>x</p></button>
-      <button type="submit" class="btn btn-primary">Publicar</button>
+      <button type="button" class="btn-circle btn-danger" (click)="clearImage()">
+        <p>x</p>
+      </button>
+      <button type="submit" class="btn btn-custom-primary">Publicar</button>
     </div>
   </form>
 </div>
-
-<!--Verificar que mas se puede implementar-->

@@ -12,6 +12,7 @@ import { FormSuscriptorComponent } from './pages/components/form-suscriptor/form
 import { CreatorComponent } from './pages/contentCreator/creator/creator.component';
 import { SurveyComponent } from './pages/components/survey/survey.component';
 import { EditProfileComponent } from './pages/user/edit-profile/edit-profile.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 
 const routes: Routes = [

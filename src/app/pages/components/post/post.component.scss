@@ -4,20 +4,23 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: center; 
+  align-items: center; 
   height: 100vh;
+  flex-direction: column;
 }
 
 .card.post-card {
   background-color: #F9F9F9;
   border-radius: 20px;
   padding: 15px;
-  margin: 20px auto;
   width: 100%;
-  max-width: 900px;
+  max-width: 600px; 
   border: none;
-  min-width: 600px;
+  margin: 20px auto; 
+  margin-left: -100px; 
+  box-sizing: border-box; 
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .text-center {
@@ -48,6 +51,13 @@ body {
   margin-right: 5px;
 }
 
+.separator {
+  width: 100%;
+  height: 1px;
+  background-color: #adadad;  
+  margin: 5px 0; 
+}
+
 .user-container {
   display: flex;
   flex-direction: column;
@@ -73,7 +83,6 @@ body {
   margin-top: 5px;
 }
 
-
 .btn-select-post {
   background: none;
   border: none;
@@ -82,11 +91,12 @@ body {
   display: flex;
   align-items: center;
   cursor: pointer;
-  margin-left: 55px;
+  margin-left: 60px;
+  margin-top: -10px;
 }
 
 .btn-select-post:hover {
-  color: #007bff;
+  color: #3C91E6;
 }
 
 .btn-primary,
@@ -98,10 +108,24 @@ body {
   cursor: pointer;
 }
 
-.btn-primary {
-  background-color: #007bff;
+.btn-custom-primary {
+  background-color: #3C91E6;
   color: white;
+  font-size: 0.9rem; 
+  padding: 6px 10px;
+  border-radius: 25px; 
+  border: none;
+  box-shadow: none; 
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-align: center;
+  width: auto;
 }
+
+.btn-custom-primary:hover {
+  background-color: #256bb4; 
+  transform: scale(1.05); 
+}
+
 
 .btn-danger {
   color: white;
@@ -132,7 +156,7 @@ body {
   height: 30px;
   margin-right: 5px;
   position: relative;
-  right: -315px;
+  right: -215px;
   top: -315px;
   background-color: #808080;
   color: #dfdfdf;
@@ -153,13 +177,19 @@ body {
   margin-left: -2px;
 }
 
-
 //Medidas Responsive
 @media (max-width: 768px) {
+  body {
+    padding: 10px; /* Añadir padding en dispositivos pequeños para no tocar los bordes */
+  }
+
   .card.post-card {
-    max-width: 95%;
+    max-width: 100%;
     padding: 10px;
-    min-width: unset;
+    min-width: unset; /* Elimina el min-width para que se ajuste mejor */
+    margin-left: 0; /* Elimina el margen izquierdo para pantallas pequeñas */
+    margin-right: 10px; /* Asegura que haya un margen derecho */
+    margin-top: 20px;
   }
 
   .input-group {
@@ -185,6 +215,10 @@ body {
 }
 
 @media (max-width: 480px) {
+  body {
+    padding: 5px; /* Menos padding en pantallas muy pequeñas */
+  }
+
   .text-center {
     font-size: 1rem;
   }

@@ -30,16 +30,15 @@ body {
 /* SIDEBAR */
 #sidebar {
 	position: fixed;
-	top: 0;
-	left: 0;
-	width: 280px;
-	height: 100%;
-	background: #F9F9F9;
-	z-index: 2000;
-	font-family: 'Lato', sans-serif;
-	transition: .3s ease;
-	overflow-x: hidden;
-	scrollbar-width: none;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100vh;
+    background: #F9F9F9;
+    z-index: 2000;
+    font-family: 'Lato', sans-serif;
+    transition: .3s ease;
+    overflow-y: auto;
 }
 #sidebar::--webkit-scrollbar {
 	display: none;
@@ -134,6 +133,7 @@ body {
 	display: flex;
 	justify-content: center;
 }
+
 /* SIDEBAR */
 
 /* CONTENT */
@@ -270,6 +270,7 @@ body {
 #content nav #switch-mode:checked + .switch-mode::before {
 	left: calc(100% - (25px - 4px) - 2px);
 }
+
 /* NAVBAR */
 
 /* MAIN */
@@ -279,6 +280,8 @@ body {
 	font-family: 'Poppins', sans-serif;
 	max-height: calc(100vh - 56px);
 	overflow-y: auto;
+	max-height: none;
+	overflow-y: visible;
 }
 #content main .head-title {
 	display: flex;
@@ -350,226 +353,65 @@ body {
 	color: #3C91E6;
 }
 #content main .box-info li:nth-child(2) .bx {
-	background: #FFF2C6;
+	background: #F1C2A6;
 	color: #FFCE26;
 }
 #content main .box-info li:nth-child(3) .bx {
-	background: #FFE0D3;
+	background: #F9A8D8;
 	color: #FD7238;
 }
-#content main .box-info li .text h3 {
-	font-size: 24px;
-	font-weight: 600;
+
+#content main .order-table table {
+	width: 100%;
+	background: #F9F9F9;
+	border-collapse: collapse;
+	border-radius: 20px;
+	overflow: hidden;
+}
+#content main .order-table table th,
+#content main .order-table table td {
+	padding: 16px;
+	border: 1px solid #ddd;
+	text-align: left;
+	font-size: 16px;
 	color: #342E37;
 }
-#content main .box-info li .text p {
-	color: #342E37;	
+#content main .order-table table th {
+	background: #F1F1F1;
+}
+#content main .order-table table tr:hover {
+	background: #F0F0F0;
+}
+#content main .order-table table tr.completed {
+	background: #D2F8D1;
+}
+#content main .order-table table tr.processing {
+	background: #FFF4A8;
+}
+#content main .order-table table tr.pending {
+	background: #F9D0D0;
 }
 
-#content main .table-data {
-	display: flex;
-	flex-wrap: wrap;
-	grid-gap: 24px;
-	margin-top: 24px;
-	width: 100%;
-	color: #342E37;
-}
-#content main .table-data > div {
-	border-radius: 20px;
+#content main .todo {
 	background: #F9F9F9;
 	padding: 24px;
-	overflow-x: auto;
-}
-#content main .table-data .head {
-	display: flex;
-	align-items: center;
-	grid-gap: 16px;
-	margin-bottom: 24px;
-}
-#content main .table-data .head h3 {
-	margin-right: auto;
-	font-size: 24px;
-	font-weight: 600;
-}
-#content main .table-data .head .bx {
-	cursor: pointer;
-}
-
-#content main .table-data .order {
-	flex-grow: 1;
-	flex-basis: 500px;
-}
-#content main .table-data .order table {
-	width: 100%;
-	border-collapse: collapse;
-}
-#content main .table-data .order table th {
-	padding-bottom: 12px;
-	font-size: 13px;
-	text-align: left;
-	border-bottom: 1px solid #eee;
-}
-#content main .table-data .order table td {
-	padding: 16px 0;
-}
-#content main .table-data .order table tr td:first-child {
-	display: flex;
-	align-items: center;
-	grid-gap: 12px;
-	padding-left: 6px;
-}
-#content main .table-data .order table td img {
-	width: 36px;
-	height: 36px;
-	border-radius: 50%;
-	object-fit: cover;
-}
-#content main .table-data .order table tbody tr:hover {
-	background: #eee;
-}
-#content main .table-data .order table tr td .status {
-	font-size: 10px;
-	padding: 6px 16px;
-	color: #F9F9F9;
 	border-radius: 20px;
-	font-weight: 700;
 }
-#content main .table-data .order table tr td .status.completed {
-	background: #3C91E6;
+#content main .todo .todo-list {
+	margin-top: 16px;
 }
-#content main .table-data .order table tr td .status.process {
-	background: #FFCE26;
-}
-#content main .table-data .order table tr td .status.pending {
-	background: #FD7238;
-}
-
-#content main .table-data .todo {
-	flex-grow: 1;
-	flex-basis: 300px;
-}
-#content main .table-data .todo .todo-list {
-	width: 100%;
-}
-#content main .table-data .todo .todo-list li {
-	width: 100%;
-	margin-bottom: 16px;
-	background: #eee;
-	border-radius: 10px;
-	padding: 14px 20px;
+#content main .todo .todo-list li {
 	display: flex;
-	justify-content: space-between;
 	align-items: center;
+	padding: 16px;
+	border-radius: 20px;
+	grid-gap: 24px;
+	background: #F9F9F9;
+	font-size: 16px;
+	color: #342E37;
+	transition: background .3s ease;
 }
-#content main .table-data .todo .todo-list li .bx {
-	cursor: pointer;
-}
-#content main .table-data .todo .todo-list li.completed {
-	border-left: 10px solid #3C91E6;
-}
-#content main .table-data .todo .todo-list li.not-completed {
-	border-left: 10px solid #FD7238;
-}
-#content main .table-data .todo .todo-list li:last-child {
-	margin-bottom: 0;
-}
-/* MAIN */
-/* CONTENT */
-
-@media screen and (max-width: 768px) {
-	#sidebar {
-		width: 200px;
-	}
-
-	#content {
-		width: calc(100% - 60px);
-		left: 200px;
-	}
-
-	#content nav .nav-link {
-		display: none;
-	}
+#content main .todo .todo-list li:hover {
+	background: #F0F0F0;
 }
 
-@media screen and (max-width: 576px) {
-	#content nav form .form-input input {
-		display: none;
-	}
-
-	#content nav form .form-input button {
-		width: auto;
-		height: auto;
-		background: transparent;
-		border-radius: none;
-		color: #342E37;
-	}
-
-	#content nav form.show .form-input input {
-		display: block;
-		width: 100%;
-	}
-	#content nav form.show .form-input button {
-		width: 36px;
-		height: 100%;
-		border-radius: 0 36px 36px 0;
-		color: #F9F9F9;
-		background: #DB504A;
-	}
-
-	#content nav form.show ~ .notification,
-	#content nav form.show ~ .profile {
-		display: none;
-	}
-
-	#content main .box-info {
-		grid-template-columns: 1fr;
-	}
-
-	#content main .table-data .head {
-		min-width: 420px;
-	}
-	#content main .table-data .order table {
-		min-width: 420px;
-	}
-	#content main .table-data .todo .todo-list {
-		min-width: 420px;
-	}
-}
-
-/* customer-create.component.scss */
-/* customer-create.component.scss */
-
-.modal {
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	z-index: 9999;
-	background-color: white;
-	padding: 20px;
-	border-radius: 10px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-	display: none;
-	max-width: 500px;
-	width: 90%;
-  }
-  
-  .modal.show {
-	display: block;
-  }
-  
-  .modal-overlay {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.5);
-	z-index: 9998;
-	display: none;
-  }
-  
-  .modal-overlay.show {
-	display: block;
-  }
-  

@@ -1,52 +1,71 @@
-<div class="d-flex align-items-center justify-content-center min-vh-100 bg-light">
+<div class="d-flex align-items-center justify-content-center min-vh-100 bg-light position-relative">
+  <!-- Icono de cambio de idioma -->
+  <div class="hidden lg:flex lg:ml-4 position-absolute top-0 right-0 mt-4 mr-4">
+    <div class="relative w-20 max-w-sm" (clickOutside)="closeMenu()">
+      <button (click)="toggleMenuI()"
+        class="flex items-center text-gray-600 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700">
+        <img [src]="getFlagUrl(currentLanguage)" alt="Current Language" class="h-3 w-3 rounded-full">
+        <span class="ml-1 text-[10px] font-medium">{{ currentLanguage.toUpperCase() }}</span>
+      </button>
+      <div *ngIf="showMenuI" class="absolute right-0 mt-1 w-20 bg-white border border-gray-300 rounded-lg shadow-md">
+        <a href="#" (click)="changeLanguage('en', $event)"
+          class="flex items-center px-2 py-1 text-gray-600 hover:bg-gray-100">
+          <img [src]="getFlagUrl('en')" alt="English" class="h-3 w-3 rounded-full">
+          <span class="ml-1 text-[10px] font-medium">English</span>
+        </a>
+        <a href="#" (click)="changeLanguage('es', $event)"
+          class="flex items-center px-2 py-1 text-gray-600 hover:bg-gray-100">
+          <img [src]="getFlagUrl('es')" alt="Spanish" class="h-3 w-3 rounded-full">
+          <span class="ml-1 text-[10px] font-medium">Español</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card de Login -->
   <div class="d-flex flex-row align-items-center justify-content-center bg-white p-5 shadow-lg w-75" style="border-radius: 20px; border: 5px solid #007bff;">
     <div class="d-none d-md-block w-50">
       <img src="https://marketing4ecommerce.net/wp-content/uploads/2024/02/imagen-generada-con-nightcafe-e1708680739301.jpg" alt="Login Image" class="img-fluid" style="border-radius: 15px;">
     </div>
     <div class="d-flex flex-column align-items-center justify-content-center w-50 p-4">
       <div class="text-center mb-4">
-        <h2 class="text-dark font-weight-bold">Welcome!</h2>
-        <p class="text-muted">Sign in to continue</p>
+        <h2 class="text-dark font-weight-bold" translate>login.login-text</h2>
+        <p class="text-muted" translate>login.login-text</p>
       </div>
 
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="w-100">
         <!-- Campo de Email -->
         <div class="mb-3">
-          <label for="email1" class="form-label text-dark h5 font-weight-medium">Email</label>
-          <input id="email1" type="email" formControlName="email" placeholder="Email address" class="form-control" style="padding: 0.75rem;">
+          <label for="email1" class="form-label text-dark h5 font-weight-medium" translate>login.email-placeholder</label>
+          <input id="email1" type="email" formControlName="email"  placeholder="{{ 'login.email-placeholder' | translate }}" class="form-control" style="padding: 0.75rem;">
           
           <!-- Alerta de Error para el Email -->
           <div *ngIf="email.errors && email.touched" class="alert alert-danger small mt-2 alert-with-arrow" role="alert">
-            <i class="bi bi-exclamation-triangle-fill me-2" style="font-size: 20px;"></i> <!--Icono de alerta-->
-            @if(email.errors['required']) {
-              <span>Este campo es requerido</span>
-            } @if(email.errors['pattern']) {
-              <span>Ingrese un correo electrónico válido</span>
-            }
+            <i class="bi bi-exclamation-triangle-fill me-2" style="font-size: 20px;"></i>
+            <span *ngIf="email.errors['required']" translate>login.validation-required</span>
+            <span *ngIf="email.errors['pattern']" translate>login.validation-email</span>
           </div>
         </div>
 
         <!-- Campo de Contraseña -->
         <div class="mb-4">
-          <label for="password1" class="form-label text-dark h5 font-weight-medium">Password</label>
-          <input id="password1" type="password" formControlName="password" placeholder="Password" class="form-control" style="padding: 0.75rem;">
+          <label for="password1" class="form-label text-dark h5 font-weight-medium" translate>login.password-placeholder</label>
+          <input id="password1" type="password" formControlName="password" placeholder="{{ 'login.password-placeholder' | translate }}" class="form-control" style="padding: 0.75rem;">
           
           <!-- Alerta de Error para la Contraseña -->
           <div *ngIf="password.errors && password.touched" class="alert alert-danger small mt-2 alert-with-arrow" role="alert">
             <i class="bi bi-exclamation-triangle-fill me-2" style="font-size: 20px;"></i>
-            @if(password.errors['required']) {
-              <span>Este campo es requerido</span>
-            }
+            <span *ngIf="password.errors['required']" translate>login.validation-password-length</span>
           </div>
         </div>
 
         <!-- Enlace para Regístrate -->
         <div class="d-flex align-items-center justify-content-between mb-4">
-          <button class="btn btn-link text-primary" (click)="navigate()">¿No tienes cuenta? Regístrate</button>
+          <button class="btn btn-link text-primary" (click)="navigate()" translate>login.no-account</button>
         </div>
 
         <!-- Botón de Enviar -->
-        <button type="submit" class="btn btn-primary w-100 py-3 h5" [disabled]="loginForm.invalid">Sign In</button>
+        <button type="submit" class="btn btn-primary w-100 py-3 h5" [disabled]="loginForm.invalid" translate>login.submit</button>
       </form>
     </div>
   </div>

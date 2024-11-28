@@ -1,5 +1,19 @@
 {
   "dashboard": {
     "title": "No hay imagen disponible para este post."
+  },
+  "post": {
+    "post-text":  "¿Qué estás pensando, Niurka?",
+    "image-icon": "imagen"
+  },
+  "login": {
+    "login-text": "Inicia sesión para continuar",
+    "email-placeholder": "Correo electrónico",
+    "password-placeholder": "Contraseña",
+    "submit": "Iniciar sesión",
+    "no-account": "¿No tienes cuenta? Regístrate",
+    "validation-required": "Este campo es requerido",
+    "validation-email":"Ingrese un correo electrónico válido",
+    "validation-password-length":"La contraseña debe tener al menos 6 caracteres"
   }
 }

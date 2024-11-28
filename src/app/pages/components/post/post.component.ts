@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PostService } from '../../../services/post.service';
 import { AuthService } from '../../../services/auth.service';
 import { PostI } from '../../../models/post.interface';
+import { TranslationService } from '../../../services/translation.service';
 
 @Component({
   selector: 'app-post',
@@ -18,7 +19,7 @@ export class PostComponent implements OnInit {
   imageSrc: string | ArrayBuffer | null = null;
   isTagInputVisible: boolean = false;
 
-  constructor() {
+  constructor(private translationService: TranslationService,) {
     this.form = this.buildForm();
   }
 
@@ -29,7 +30,7 @@ export class PostComponent implements OnInit {
   buildForm(): FormGroup {
     return this.formBuilder.group({
       text: ['', [Validators.required, Validators.minLength(2)]],
-      tag: ['', Validators.required],
+      tag: ['', Validators.required], //category: ['', Validators.required] verificar categorias
       image: ['', Validators.required],
     });
   }

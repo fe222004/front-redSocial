@@ -1,5 +1,19 @@
 {
   "dashboard": {
     "title": "No image available for this post."
+  },
+  "post": {
+    "post-text": "¿What are you thinking, Niurka?",
+    "image-icon": "image"
+  },
+  "login": {
+    "login-text": "Sign in to continue",
+    "email-placeholder": "Email address",
+    "password-placeholder": "Password",
+    "submit": "Sign In",
+    "no-account": "Don't have an account? Register",
+    "validation-required": "This field is required",
+    "validation-email": "Enter a vaild email",
+    "validation-password-length": "Password must be at least 6 characters"
   }
 }
