@@ -1,5 +1,17 @@
 {
   "dashboard": {
     "title": "No image available for this post."
+  },
+  "register": {
+    "title": "Welcome!",
+    "instruction": "Sign in to continue",
+    "last":"Last Name",
+    "first":"First Name",
+    "email":"Email",
+    "password": "Password",
+    "profile": "Drag and drop an image here or click to select it.",
+    "choose": "Choose File",
+    "change": "Change image",
+    "button": "Sign In"
   }
 }
