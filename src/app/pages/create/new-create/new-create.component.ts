@@ -1,7 +1,7 @@
 import { Component, Inject, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StoryService } from '../../../services/story.service';
-import { AuthService } from '../../../services/auth.service';
+import { AuthService } from '../../../components/auth/service/auth.service';
 import { StoryI } from '../../../models/story';
 import { Router } from '@angular/router';
 

@@ -12,7 +12,7 @@ import { CountryService } from '../../../services/country.service';
 import { Rol } from '../../../models/rol';
 import { RolService } from '../../../services/rol.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService } from '../../../services/auth.service';
+import { AuthService } from '../../../components/auth/service/auth.service';
 
 @Component({
   selector: 'app-edit-profile',
@@ -40,9 +40,7 @@ export class EditProfileComponent {
     lastname: '',
     email: '',
     password: '',
-    image: '',
-    description: '',
-    countryId: 0,
+    avatar: ''
   };
 
   constructor(
@@ -55,7 +53,7 @@ export class EditProfileComponent {
       if (userId) {
         this.userService.getUser(userId).subscribe((response: User) => {
           this.user = response; // Guardar toda la información del usuario
-          this.imageSrc = response.image; // Mostrar la imagen actual del usuario
+          this.imageSrc = response.avatar; // Mostrar la imagen actual del usuario
           this.initForm();
         });
       }
@@ -91,9 +89,7 @@ export class EditProfileComponent {
   initForm(): void {
     this.editForm.patchValue({
       firstname: this.user.firstname,
-      lastname: this.user.lastname,
-      description: this.user.description,
-      countryId: this.user.countryId,
+      lastname: this.user.lastname
     });
   }
 

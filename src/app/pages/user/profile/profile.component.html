@@ -1,12 +1,116 @@
 <body>
   <main>
     <app-navar></app-navar>
-    <div class="container">
-      <!-- Sección izquierda (perfil del usuario) -->
-      <section class="left-section">
-        <div class="profile">
-          <div class="cover-photo">
-            <img src="https://plus.unsplash.com/premium_photo-1673177667569-e3321a8d8256?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Zm90byUyMGRlJTIwcG9ydGFkYXxlbnwwfHwwfHx8MA%3D%3D" alt="Foto de Portada">
+    <section id="content">
+      <main style="display: flex;">
+        <section>
+          <!-- Usuario -->
+          <div class="card" style="width: 700px;">
+            <div class="card-body" style="display: flex;">
+              <div class="profile-image">
+                <img [src]="user.avatar" class="card-img-top1"
+                  alt={{user.firstname}}>
+
+              </div>
+              <div class="user" style="margin-left: 20px;">
+                <div class="header" style="display: flex;">
+                  <h3>{{user.firstname}} {{user.lastname}}</h3>
+                  <div class="option" style="margin-left: 160px;">
+                    <button type="submit" class="btn btn-outline-info" (click)="navigateToEditUser()">
+                      <a class="edit"  style="color: black; text-decoration: none;">
+                        Editar Perfil
+                      </a>
+                    </button>
+                  </div>
+                </div>
+                <p class="card-text"><small class="text-body-secondary">{{user.email}}</small></p>
+              
+                <div class="detalles" style="display: flex;">
+                  <!--Seguidores-->
+                  <p style="margin-top: 20px;">220</p>
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                    style="border: none; background-color: transparent; color: black; margin-right: 35px;">
+                    Seguidores
+                  </button>
+
+                  <!--Lista Seguidores-->
+                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" style="width: 450px;">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="exampleModalLabel">Seguidores</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <ul class="list-group list-group-flush">
+                            <li class="list-group-item" style="display: flex;">
+                              <div class="profile-image">
+                                <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg"
+                                  style="width: 50px; height: 50px; border-radius: 50%;" alt="...">
+                              </div>
+                              <div class="user" style="margin-left: 20px;">
+                                <h6>{{user.firstname}} {{user.lastname}}</h6>
+                                <p class="card-text" style="font-size: 15px;">
+                                  <small class="text-body-secondary">{{user.email}}</small>
+                                </p>
+                              </div>
+                              <div class="follow" style="margin-left: 90px;">
+                                <button type="button" class="btn btn-outline-info"
+                                  style=" border-radius: 50px; margin-top: 10px;">Remove</button>
+                              </div>
+                            </li>
+                            <li class="list-group-item" style="display: flex;">
+                              <div class="profile-image">
+                                <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg"
+                                  style="width: 50px; height: 50px; border-radius: 50%;" alt="...">
+                              </div>
+                              <div class="user" style="margin-left: 20px;">
+                                <h6>Joss Balarezo</h6>
+                                <p class="card-text" style="font-size: 15px;"><small
+                                    class="text-body-secondary">jossy.balarezo21</small>
+                                </p>
+                              </div>
+                              <div class="follow" style="margin-left: 90px;">
+                                <button type="button" class="btn btn-outline-info"
+                                  style=" border-radius: 50px; margin-top: 10px;">Remove</button>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!--Seguidos-->
+                  <p style="margin-top: 20px;">20</p>
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1"
+                    style="border: none; background-color: transparent; color: black;">
+                    Seguidos
+                  </button>
+
+                  <!--Lista Seguidos-->
+                  <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="exampleModalLabel">Seguidos</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          ...
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="postear" style="margin-left: 200px;">
+            <app-post></app-post>
           </div>
           <div class="profile-info">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwHf5299P7Ub9mEF3y-KBKsF-kwSRJQUKcyQ&s" alt="Foto de Perfil" class="profile-photo">

@@ -19,7 +19,7 @@ export class UserService {
     return this.httpClient.get<User>(`${this.apiUrl}/${id}`).pipe(
       map((user: User) => ({
         ...user,
-        image: `${this.apiImage}/uploads/${user.image}`, // Construir la URL completa de la imagen del usuario
+        image: `${this.apiImage}/uploads/${user.avatar}`, // Construir la URL completa de la imagen del usuario
       })),
       catchError((error: HttpErrorResponse) => {
         let errorMessage = 'An unknown error occurred!';
@@ -38,21 +38,11 @@ export class UserService {
     );
   }
 
-  createUser(formData: FormData): Observable<User> {
-    return this.httpClient.post<User>(this.apiUrl, formData).pipe(
+  updateUser(id: string, formData: FormData): Observable<any> {
+    return this.httpClient.put<any>(`${this.apiUrl}/${id}`, formData).pipe(
       map((user: User) => ({
         ...user,
-        image: `${this.apiImage}/uploads/${user.image}`, // Construir la URL completa de la imagen del usuario
-      })),
-      catchError(this.handleError)
-    );
-  }
-
-  updateUser(id: string, formData: FormData): Observable<User> {
-    return this.httpClient.put<User>(`${this.apiUrl}/${id}`, formData).pipe(
-      map((user: User) => ({
-        ...user,
-        image: `${this.apiImage}/uploads/${user.image}`, // Construir la URL completa de la imagen del usuario
+        image: `${this.apiImage}/uploads/${user.avatar}`, // Construir la URL completa de la imagen del usuario
       })),
       catchError(this.handleError)
     );
