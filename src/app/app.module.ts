@@ -42,6 +42,7 @@ import { CommentsComponent } from './pages/components/comments/comments.componen
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { AlertModule } from './components/component/alert/alert.module';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -83,6 +84,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MenubarModule,
     PasswordModule,
     CheckboxModule,
+    AlertModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
