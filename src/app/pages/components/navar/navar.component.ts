@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../../../services/auth.service';
+import { AuthService } from '../../../components/auth/service/auth.service';
 import { LanguageConstants } from '../../../constants/language-constants';
 import { TranslationService } from '../../../services/translation.service';
 

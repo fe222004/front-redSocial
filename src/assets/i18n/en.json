@@ -13,5 +13,10 @@
     "choose": "Choose File",
     "change": "Change image",
     "button": "Sign In"
+  },
+  "alert": {
+    "success_title": "Registration Successful!",
+    "success_message": "Your account has been created successfully. Welcome!",
+    "accept_button": "Accept"
   }
 }

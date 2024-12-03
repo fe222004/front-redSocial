@@ -10,6 +10,7 @@ import { User } from '../../../models/user';
 import { Router } from '@angular/router';
 import { PlaceholderConstants } from '../../../constants/placeholder-constants';
 import { TranslationService } from '../../../services/translation.service';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -20,18 +21,22 @@ export class RegisterComponent {
   private readonly formBuilder: FormBuilder = inject(FormBuilder);
   private readonly userService: UserService = inject(UserService);
 
- profile = PlaceholderConstants.register;
+  private readonly authService: AuthService = inject(AuthService);
+
+  profile = PlaceholderConstants.register;
+
+  public showAlert: boolean = false;
 
   public loginForm: FormGroup;
   public imageSrc: string | ArrayBuffer | null | undefined = null;
   public files: any[] = [];
   public errorMessage: string | null = null;
 
- 
-
-  constructor(private router: Router, private translationService: TranslationService) {
+  constructor(
+    private router: Router,
+    private translationService: TranslationService
+  ) {
     this.loginForm = this.buildForm();
-   
   }
 
   buildForm(): FormGroup {
@@ -52,7 +57,15 @@ export class RegisterComponent {
           Validators.maxLength(40),
         ],
       ],
-      email: ['',[Validators.required,Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/),],],
+      email: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(
+            /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+          ),
+        ],
+      ],
       password: [
         '',
         [
@@ -63,7 +76,6 @@ export class RegisterComponent {
         ],
       ],
       image: [''],
-      
     });
   }
 
@@ -83,7 +95,6 @@ export class RegisterComponent {
     return this.loginForm.controls['password'];
   }
 
-
   getFile(event: any): void {
     const file = event.target.files[0];
     if (file) {
@@ -96,10 +107,6 @@ export class RegisterComponent {
     }
   }
 
- 
-
-
-
   onSubmit() {
     if (this.loginForm.invalid) {
       return;
@@ -111,23 +118,25 @@ export class RegisterComponent {
     formData.append('firstname', this.loginForm.value.firstname);
     formData.append('email', this.loginForm.value.email);
     formData.append('password', this.loginForm.value.password);
-  
-
 
     const file = this.files[0];
-    formData.append('image', file, file.name);
+    formData.append('avatar', file);
+
+    console.log(file, file.name);
 
     // Verificar que formData contiene los datos correctos
-    formData.forEach((value, key) => {});
+    // Verificar que formData contiene los datos correctos
+    formData.forEach((value, key) => {
+      console.log(key, value); // Verifica los datos del FormData
+    });
 
-    this.userService.createUser(formData).subscribe(
+    console.log('control', formData);
+    this.authService.register(formData).subscribe(
       (response: User) => {
-        this.errorMessage = null; // Borrar mensaje de error
-        this.router.navigate(['']); // Redirigir a la página de perfil o cualquier otra página
-
+        this.showAlert = true;
       },
       (error) => {
-        this.errorMessage = error; // Mostrar mensaje de error
+        alert('Register failed');
       }
     );
   }

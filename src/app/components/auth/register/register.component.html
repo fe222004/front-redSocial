@@ -100,6 +100,12 @@
                 <button class="btn btn-primary w-100 py-3 h5" type="submit"> {{ 'register.button' | translate }}</button>
             </form>
         </div>
+
+        <div *ngIf="showAlert" class="fixed inset-0 flex items-center justify-center z-50">
+            <app-alert></app-alert>
+          </div>
     </div>
 </div>
+
+
 

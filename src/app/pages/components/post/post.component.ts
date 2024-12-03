@@ -1,7 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PostService } from '../../../services/post.service';
-import { AuthService } from '../../../services/auth.service';
+import { AuthService } from '../../../components/auth/service/auth.service';
 import { PostI } from '../../../models/post.interface';
 
 @Component({

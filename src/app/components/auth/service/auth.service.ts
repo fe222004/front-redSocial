@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { User } from '../../../models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,14 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
+  register(payload: FormData): Observable<User> {
+    console.log('servicioi ',payload)
+    return this.http.post<User>(`${this.apiUrl}/api/auth/register`, payload);
+    console.log(payload)
+  }
+
   login(email: string, password: string): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/auth/login`, { email, password })
+    return this.http.post<any>(`${this.apiUrl}/api/auth/login`, { email, password })
       .pipe(
         map(response => {
           if (response && response.token) {

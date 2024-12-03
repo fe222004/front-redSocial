@@ -13,6 +13,11 @@
     "choose": "Elegir archivo",
     "change": "Cambiar imagen",
     "button": "Registrarse"
+  },
+  "alert": {
+    "success_title": "¡Registro Exitoso!",
+    "success_message": "Tu cuenta ha sido creada satisfactoriamente. ¡Bienvenido!",
+    "accept_button": "Aceptar"
   }
 }
 
