@@ -31,5 +31,22 @@
   },
   "nav1": {
     "logout": "Log out"
+     },
+  "register": {
+    "title": "Welcome!",
+    "instruction": "Sign in to continue",
+    "last":"Last Name",
+    "first":"First Name",
+    "email":"Email",
+    "password": "Password",
+    "profile": "Drag and drop an image here or click to select it.",
+    "choose": "Choose File",
+    "change": "Change image",
+    "button": "Sign In"
+  },
+  "alert": {
+    "success_title": "Registration Successful!",
+    "success_message": "Your account has been created successfully. Welcome!",
+    "accept_button": "Accept"
   }
 }

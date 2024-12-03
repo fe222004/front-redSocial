@@ -31,5 +31,23 @@
   },
   "nav1": {
     "logout": "Salir"
+  },
+  "register": {
+    "title": "¡Bienvenido!",
+    "instruction": "Registrate para continuar",
+    "last":"Apellido",
+    "first":"Nombre",
+    "email":"Correo Electronico",
+    "password": "Contraseña",
+    "profile": "Arrastre y suelte una imagen aquí o haga clic para seleccionarla.",
+    "choose": "Elegir archivo",
+    "change": "Cambiar imagen",
+    "button": "Registrarse"
+  },
+  "alert": {
+    "success_title": "¡Registro Exitoso!",
+    "success_message": "Tu cuenta ha sido creada satisfactoriamente. ¡Bienvenido!",
+    "accept_button": "Aceptar"
   }
 }
+

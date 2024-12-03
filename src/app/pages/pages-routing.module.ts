@@ -11,9 +11,6 @@ import { RegisterComponent } from '../components/auth/register/register.componen
 import { CustomerCreateComponent } from './customer-support/customer-create/customer-create.component';
 import { CustomerListComponent } from './customer-support/customer-list/customer-list.component';
 import { CreatorComponent } from './contentCreator/creator/creator.component';
-import { SurveyComponent } from './components/survey/survey.component';
-import { CommentsComponent } from './components/comments/comments.component';
-import { NavarComponent } from './components/navar/navar.component';
 
 const routes: Routes = [
   {

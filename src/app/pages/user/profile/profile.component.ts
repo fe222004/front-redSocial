@@ -11,7 +11,7 @@ import { PostService } from '../../../services/post.service';
 import { PostI } from '../../../models/post.interface';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../../../models/user';
-import { AuthService } from '../../../services/auth.service';
+import { AuthService } from '../../../components/auth/service/auth.service';
 import { UserService } from '../../../services/user.service';
 
 @Component({
@@ -37,9 +37,7 @@ export class ProfileComponent {
     lastname: '',
     email: '',
     password: '',
-    image: '',
-    description: '',
-    countryId: 0,
+    avatar: ''
   };
   http: any;
 
