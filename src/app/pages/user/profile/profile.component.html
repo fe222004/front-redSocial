@@ -13,33 +13,32 @@
             <h3 class="name">Joss Balarezo</h3>
             <p class="username">jossbalarezo21</p>
             <div class="stats">
-              <span><strong>2022</strong> Seguidores</span>
-              <span><strong>590</strong> Seguidos</span>
-              <span><strong>30</strong> Publicaciones</span>
+              <span><strong>2022</strong>{{ 'profile1.followers' | translate }}</span>
+              <span><strong>590</strong>{{ 'profile2.following' | translate }}</span>
+              <span><strong>30</strong> {{ 'profile3.post' | translate }}</span>
             </div>
             <p class="description">
-              “No podemos resolver nuestros problemas con el mismo pensamiento que usamos cuando los creamos”. - Albert Einstein
+              {{ 'profile.description' | translate }}
             </p>
+            <button type="button" class="btn btn-outline-info" style="font-size: 17px; border: none;" (click)="navigateToEditUser()">Editar Perfil</button>
           </div>
           <div class="extra-info">
-            <h4>Más información:</h4>
-            <p>🏠 Vive en Quito</p>
-            <p>❤️ Sotera</p>
-            <p>💼 Desarrollador de Software</p>
+            <h4>{{ 'profile4.information' | translate }}</h4>
+            <p>🏠 {{ 'profile5.city' | translate }}</p>
+            <p>❤️ {{ 'profile6.status' | translate }}</p>
+            <p>💼 {{ 'profile7.profession' | translate }}</p>
           </div>
         </div>
       </section>
   
       <!-- Sección central -->
       <section class="center-section">
-        <h2>Historias</h2>
-        <p>Contenido principal, como un feed de noticias.</p>
+        
       </section>
   
       <!-- Sección derecha -->
       <section class="right-section">
-        <h2>Sugerencias</h2>
-        <p>sugerencias de seguidores</p>
+        
       </section>
     </div>
   </main>

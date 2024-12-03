@@ -1,5 +1,35 @@
 {
   "dashboard": {
     "title": "No hay imagen disponible para este post."
+  },
+  "nav": {
+    "search": "Buscar"
+  },
+  "profile": {
+    "description": "“No podemos resolver nuestros problemas con el mismo pensamiento que usamos cuando los creamos”. - Albert Einstein"
+  },
+  "profile1": {
+    "followers": "Seguidores"
+  },
+  "profile2": {
+    "following": "Seguidos"
+  },
+  "profile3": {
+    "post": "Publicaciones"
+  },
+  "profile4": {
+    "information": "Detalles:"
+  },
+  "profile5": {
+    "city": "Vive en Quito"
+  },
+  "profile6": {
+    "status": "Soltera"
+  },
+  "profile7": {
+    "profession": "Desarrollador de Software"
+  },
+  "nav1": {
+    "logout": "Salir"
   }
 }

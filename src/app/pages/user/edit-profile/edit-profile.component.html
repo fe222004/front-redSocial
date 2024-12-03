@@ -1,9 +1,4 @@
 <body>
-    <header>
-        <!-- Menu -->
-        <app-menu></app-menu>
-    </header>
-
     <main>
         <app-navar></app-navar>
         <section id="content">
@@ -18,8 +13,8 @@
                             </div>
                             <div class="d-flex flex-column align-items-center justify-content-center w-50 p-4">
                                 <div class="text-center mb-4">
-                                    <h2 class="text-dark font-weight-bold">Welcome!</h2>
-                                    <p class="text-muted">Sign in to continue</p>
+                                    <h2 class="text-dark font-weight-bold">Hola Joss!</h2>
+                                    <p class="text-muted">Editar Perfil de usuario</p>
                                 </div>
                                 <form [formGroup]="editForm" (ngSubmit)="onSubmit()" class="w-100">
                                     <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
@@ -32,7 +27,7 @@
                                                 (dragover)="onDragOver($event)">
                                                 <label for="fileInput" class="upload-label">
                                                     <i class="fas fa-cloud-upload-alt"></i>
-                                                    Arrastra y suelta una imagen aquí o haz clic para seleccionarla.
+                                                    Arrastra y suelta una imagen aquí o haz clic para seleccionar la imagen.
                                                 </label>
                                                 <input type="file" id="fileInput" accept="image/*"
                                                     (change)="getFile($event)" style="display: none;">
@@ -50,9 +45,8 @@
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label for="lastname"
-                                                class="form-label text-dark h5 font-weight-medium">Last
-                                                Name</label>
-                                            <input id="lastname" type="text" placeholder="Last Name"
+                                                class="form-label text-dark h5 font-weight-medium">Apellido:</label>
+                                            <input id="lastname" type="text"
                                                 formControlName="lastname" class="form-control"
                                                 style="padding: 0.75rem;">
                                             <div style="font-size: smaller; text-align: center">
@@ -67,9 +61,8 @@
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label for="firstname"
-                                                class="form-label text-dark h5 font-weight-medium">First
-                                                Name</label>
-                                            <input id="firstname" type="text" placeholder="First Name"
+                                                class="form-label text-dark h5 font-weight-medium">Nombre:</label>
+                                            <input id="firstname" type="text" 
                                                 formControlName="firstname" class="form-control"
                                                 style="padding: 0.75rem;">
                                             <div style="font-size: smaller; text-align: center">
@@ -83,26 +76,25 @@
                                             </div>
                                         </div>
                                         <div class="col-md-6 mb-3">
-                                            <label for="countryId"
-                                                class="form-label text-dark h5 font-weight-medium">Country</label>
-                                            <select id="countryId" class="form-control" formControlName="countryId"
+                                            <label for="description"
+                                                class="form-label text-dark h5 font-weight-medium">Email</label>
+                                            <input id="description" type="text" 
+                                                formControlName="description" class="form-control"
                                                 style="padding: 0.75rem;">
-                                                <option value={{country.id}} *ngFor="let country of countries">
-                                                    {{country.name}}
-                                                </option>
-                                            </select>
                                             <div style="font-size: smaller; text-align: center">
-                                                @if(countryId.errors){
-                                                @if(countryId.touched){
-                                                @if(countryId.errors['required']){
+                                                @if(description.errors){ @if(description.touched){
+                                                @if(description.errors['required']){
                                                 <span class="p-error">Este campo es requerido</span>
+                                                } @if(description.errors['minlength']){
+                                                <span class="p-error">El campo debe contener al menos 5
+                                                    caracteres</span>
                                                 } } }
                                             </div>
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label for="description"
-                                                class="form-label text-dark h5 font-weight-medium">Description</label>
-                                            <input id="description" type="text" placeholder="Description"
+                                                class="form-label text-dark h5 font-weight-medium">Descripción</label>
+                                            <input id="description" type="text" 
                                                 formControlName="description" class="form-control"
                                                 style="padding: 0.75rem;">
                                             <div style="font-size: smaller; text-align: center">
@@ -116,7 +108,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <button class="btn btn-primary w-100 py-3 h5" type="submit">Sign In</button>
+                                    <button class="btn btn-primary w-100 py-3 h5" type="submit">Actualizar</button>
                                 </form>
                             </div>
                         </div>
