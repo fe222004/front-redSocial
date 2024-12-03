@@ -77,6 +77,10 @@ const routes: Routes = [
     path: 'post',
     component: PostComponent
 
+  },{
+    path: 'nav',
+    component: NavarComponent
+
   },
   {
     path: 'customer-create',

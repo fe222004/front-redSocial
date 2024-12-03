@@ -1,9 +1,4 @@
 <body>
-
-  <header>
-    <!-- Menu -->
-    <app-menu></app-menu>
-  </header>
   <main>
     <app-navar></app-navar>
     <section id="content">
@@ -117,74 +112,40 @@
           <div class="postear" style="margin-left: 200px;">
             <app-post></app-post>
           </div>
-          <!-- Post -->
-          <h3 style="margin-top: 40px; margin-bottom: 20px; margin-left: 200px;">Publicaciones</h3>
-          <!-- POSTS -->
-          @for(post of posts; track post.id){
-          <div class="post">
-            <div class="card" style="width: 700px;">
-              <div class="card-header" style="display: flex;">
-                <div class="profile-image">
-                  <img [src]="post.user?.image" 
-                    style="width: 50px; height: 50px; border-radius: 50%;" alt="...">
-                </div>
-                <div class="user" style="margin-left: 20px;">
-                  <h6>{{post.user?.firstname}}{{post.user?.lastname}}</h6>
-                  <p class="card-text" style="font-size: 15px;"><small
-                      class="text-body-secondary">{{post.user?.email}}</small>
-                  </p>
-                </div>
-              </div>
-              <div class="card-body">
-                <blockquote class="blockquote mb-0">
-                  <p>{{post.text}}</p>
-                  <footer class="blockquote-footer">{{post.tag}}
-                  </footer>
-                </blockquote>
-                <div class="imagen">
-                  <img *ngIf="post.image" [src]="post.image" 
-                  class="card-img-top" alt="Post Image" 
-                  style="width: 400px; height: 400px; margin-left: 50px;">
-             <p *ngIf="!post.image" class="text-body-secondary">No hay imagen disponible para este post.</p>
-                </div>
-              </div>
-              <div class="card-footer">
-                <div class="option">
-                  <div class="coment">
-                    <i class="bi bi-heart"></i>
-                    <button>Like</button>
-                  </div>
-                  <div class="coment">
-                    <i class="bi bi-chat"></i>
-                    <button (click)="openModalComents()">Comentarios</button>
-                      <app-comments>
-                        <p>Comentarios</p>
-                      </app-comments>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer">
-                <div class="coment1">
-                  <div class="photo">
-                    <img [src]="post.user?.image"  alt="...">
-                  </div>
-                  <form [formGroup]="commentForm" (ngSubmit)="onSubmit()" style="display: flex;">
-                    <div class="mb-3">
-                      <input type="text" class="form-control" id="coment" placeholder="Agrega un comentario" formControlName="comment">
-                    </div>
-                    <div class="comentsave">
-                      <button type="submit" class="btn btn-outline-info" (click)="createComent()">Comentar</button>
-                    </div>
-                  </form>
-                </div>
-              </div>
+          <div class="profile-info">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwHf5299P7Ub9mEF3y-KBKsF-kwSRJQUKcyQ&s" alt="Foto de Perfil" class="profile-photo">
+            <h3 class="name">Joss Balarezo</h3>
+            <p class="username">jossbalarezo21</p>
+            <div class="stats">
+              <span><strong>2022</strong> Seguidores</span>
+              <span><strong>590</strong> Seguidos</span>
+              <span><strong>30</strong> Publicaciones</span>
             </div>
+            <p class="description">
+              “No podemos resolver nuestros problemas con el mismo pensamiento que usamos cuando los creamos”. - Albert Einstein
+            </p>
           </div>
-          }
-
-        </section>
-      </main>
-    </section>
+          <div class="extra-info">
+            <h4>Más información:</h4>
+            <p>🏠 Vive en Quito</p>
+            <p>❤️ Sotera</p>
+            <p>💼 Desarrollador de Software</p>
+          </div>
+        </div>
+      </section>
+  
+      <!-- Sección central -->
+      <section class="center-section">
+        <h2>Historias</h2>
+        <p>Contenido principal, como un feed de noticias.</p>
+      </section>
+  
+      <!-- Sección derecha -->
+      <section class="right-section">
+        <h2>Sugerencias</h2>
+        <p>sugerencias de seguidores</p>
+      </section>
+    </div>
   </main>
-  <app-footer></app-footer>
+  
 </body>
