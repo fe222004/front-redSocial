@@ -1,26 +1,20 @@
-body {
-  background-color: #f8f9fa;
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center; 
-  align-items: center; 
-  height: 100vh;
-  flex-direction: column;
-}
-
 .card.post-card {
   background-color: #F9F9F9;
   border-radius: 20px;
-  padding: 15px;
+  padding: 20px;
   width: 100%;
-  max-width: 600px; 
+  max-width: 600px;
   border: none;
-  margin: 20px auto; 
-  margin-left: -100px; 
-  box-sizing: border-box; 
+  margin: 20px auto;
+  margin-left: -120px;
+  box-sizing: border-box;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.card.post-card .input-group,
+.card.post-card .button-group {
+  margin-bottom: -30px;
 }
 
 .text-center {
@@ -30,7 +24,8 @@ body {
 .input-group {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
+  position: relative;
 }
 
 .input-group input {
@@ -39,6 +34,12 @@ body {
   border-radius: 5px;
   padding: 8px;
   border: 1px solid #ccc;
+  transition: background-color 0.3s ease;
+}
+
+.input-group input:hover {
+  background-color: rgba(231, 231, 231, 0.6);
+  transition: background-color 0.3s ease;
 }
 
 .input-group.mb-3 {
@@ -54,8 +55,17 @@ body {
 .separator {
   width: 100%;
   height: 1px;
-  background-color: #adadad;  
-  margin: 5px 0; 
+  background-color: #adadad;
+  margin: 10px auto;
+}
+
+.separator-line {
+  width: 85%;
+  height: 0.1px;
+  background-color: #adadad;
+  margin: 5px 0;
+  margin-left: 40px;
+  margin-top: -20px;
 }
 
 .user-container {
@@ -78,25 +88,91 @@ body {
 
 .button-group {
   display: flex;
-  gap: 1px;
-  justify-content: center;
+  gap: 10px;
+  justify-content: flex-end;
   margin-top: 5px;
+  margin-left: 70px;
+  position: absolute;
+  bottom: 10px;
 }
+
+.button-group2 {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  top: 440px;
+  left: 40px;
+  position: absolute;
+}
+
 
 .btn-select-post {
   background: none;
   border: none;
-  color: #707070;
-  font-size: 1rem;
+  color: #3C91E6;
+  font-size: 1.1rem;
   display: flex;
   align-items: center;
+  justify-content: center;
   cursor: pointer;
-  margin-left: 60px;
-  margin-top: -10px;
+  width: 8vw;
+  height: 8vw;
+  max-width: 40px;
+  max-height: 40px;
+  padding: 0;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+  position: relative;
+}
+
+.btn-select-post2 {
+  background: none;
+  border: none;
+  color: #3C91E6;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 8vw;
+  height: 8vw;
+  max-width: 40px;
+  max-height: 40px;
+  padding: 0;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+  position: relative;
+}
+
+.btn-select-post2 i {
+  position: relative;
+  z-index: 11;
+}
+
+.btn-select-post2:hover {
+  background-color: rgba(174, 211, 248, 0.6);
 }
 
 .btn-select-post:hover {
-  color: #3C91E6;
+  background-color: rgba(174, 211, 248, 0.6);
+}
+
+/* Tooltip verificar en el 2 icono*/
+.tooltip-text {
+  position: absolute;
+  top: 45px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 5px 10px;
+  font-size: 0.6rem;
+  border-radius: 5px;
+  display: none;
+}
+
+.btn-select-post:hover .tooltip-text {
+  display: block;
 }
 
 .btn-primary,
@@ -108,141 +184,126 @@ body {
   cursor: pointer;
 }
 
+//BOTON IMAGEN HACERLO RESPONSIVE
 .btn-custom-primary {
   background-color: #3C91E6;
-  color: white;
-  font-size: 0.9rem; 
-  padding: 6px 10px;
-  border-radius: 25px; 
+  color: #fff;
+  font-size: 14px;
+  padding: 10px 20px;
+  border-radius: 25px;
   border: none;
-  box-shadow: none; 
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  text-align: center;
-  width: auto;
+  transition: background-color 0.3s ease;
+  margin-top: 30px;
+  margin-left: 425px;
+  margin-right: 0;
+  display: block;
+  position: relative;
+  top: -15px;
+  cursor: pointer;
 }
 
 .btn-custom-primary:hover {
-  background-color: #256bb4; 
-  transform: scale(1.05); 
+  background-color: #0056b3;
+  color: #fff;
 }
-
 
 .btn-danger {
   color: white;
 }
 
-.image-preview-container {
+.image-preview-container,
+.video-preview-container {
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  top: -20px;
   background-color: #F9F9F9;
-  border-radius: 10px;
+  border-radius: 40px;
   padding: 1rem;
 }
 
-.image-preview-container img {
+.image-preview-container img,
+.video-preview-container video {
   max-width: 100%;
-  height: 300px;
+  height: 400px;
   object-fit: cover;
-  border-radius: 10px;
-  width: 400px;
+  width: 500px;
+  border-radius: 18px !important;
 }
 
+/* Boton de eliminar hacerlo responsive*/
 .btn-circle {
-  width: 30px;
-  height: 30px;
-  margin-right: 5px;
-  position: relative;
-  right: -215px;
-  top: -315px;
-  background-color: #808080;
+  width: 8vw;
+  height: 8vw;
+  max-width: 30px;
+  max-height: 30px;
+  background-color: #121212a5;
   color: #dfdfdf;
-  border: 2px solid #808080;
   border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, background-color 0.2s ease;
+  cursor: pointer;
+  position: relative;
+  left: 427px;
+  top: -66vh;
+  transition: background-color 0.3s ease;
 }
 
 .btn-circle:hover {
-  background-color: #929292;
-  transform: scale(1.1);
+  background-color: #1212127d;
 }
 
-.btn-circle p {
-  font-size: 1.1rem;
-  margin-top: -12px;
-  margin-left: -2px;
+.btn-circle i {
+  font-size: 1vw;
+  color: inherit;
+  margin: 0;
+  padding: 0;
 }
 
-//Medidas Responsive
-@media (max-width: 768px) {
-  body {
-    padding: 10px; /* Añadir padding en dispositivos pequeños para no tocar los bordes */
-  }
 
-  .card.post-card {
-    max-width: 100%;
-    padding: 10px;
-    min-width: unset; /* Elimina el min-width para que se ajuste mejor */
-    margin-left: 0; /* Elimina el margen izquierdo para pantallas pequeñas */
-    margin-right: 10px; /* Asegura que haya un margen derecho */
-    margin-top: 20px;
-  }
-
-  .input-group {
-    flex-direction: column;
-    gap: 5px;
-  }
-
-  .profile-image {
-    width: 30px;
-    height: 30px;
-  }
-
-  .btn-primary,
-  .btn-danger {
-    width: 100%;
-    margin-top: 10px;
-  }
-
-  .image-preview-container img {
-    height: auto;
-    max-height: 200px;
-  }
+/* Toolip de eliminar */
+.tooltip-eliminar {
+  position: absolute;
+  top: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 5px 10px;
+  font-size: 0.6rem;
+  border-radius: 5px;
+  display: none;
+  z-index: 10;
 }
 
-@media (max-width: 480px) {
-  body {
-    padding: 5px; /* Menos padding en pantallas muy pequeñas */
-  }
-
-  .text-center {
-    font-size: 1rem;
-  }
-
-  .input-group {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .profile-image {
-    width: 25px;
-    height: 25px;
-  }
-
-  .btn-circle {
-    width: 25px;
-    height: 25px;
-    font-size: 0.8rem;
-    top: -250px;
-    right: -250px;
-  }
-
-  .image-preview-container img {
-    width: 90%;
-    max-height: 150px;
-  }
+.btn-tooltip:hover .tooltip-eliminar {
+  display: block;
 }
+
+//Boton input
+.btn-post {
+  background-color: #3C91E6;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: -4px;
+  margin-left: 300px;
+  margin-right: 0;
+  display: block;
+  position: relative;
+  top: 200px;
+}
+
+.btn-post:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive*/
