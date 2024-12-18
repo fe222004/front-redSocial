@@ -9,12 +9,12 @@
   margin-left: -120px;
   box-sizing: border-box;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  position: relative;
+  position: relative; 
 }
 
 .card.post-card .input-group,
 .card.post-card .button-group {
-  margin-bottom: -30px;
+  margin-bottom: -30px; 
 }
 
 .text-center {
@@ -38,7 +38,7 @@
 }
 
 .input-group input:hover {
-  background-color: rgba(231, 231, 231, 0.6);
+  background-color:rgba(231, 231, 231, 0.6);  
   transition: background-color 0.3s ease;
 }
 
@@ -52,9 +52,9 @@
   margin-right: 5px;
 }
 
-.separator {
+.separator{
   width: 100%;
-  height: 1px;
+  height: 1px; 
   background-color: #adadad;
   margin: 10px auto;
 }
@@ -89,11 +89,11 @@
 .button-group {
   display: flex;
   gap: 10px;
-  justify-content: flex-end;
+  justify-content: flex-end; 
   margin-top: 5px;
-  margin-left: 70px;
-  position: absolute;
-  bottom: 10px;
+  margin-left: 70px; 
+  position: absolute; 
+  bottom: 10px; 
 }
 
 .button-group2 {
@@ -193,17 +193,17 @@
   border-radius: 25px;
   border: none;
   transition: background-color 0.3s ease;
-  margin-top: 30px;
+  margin-top: 30px ;
   margin-left: 425px;
   margin-right: 0;
   display: block;
   position: relative;
   top: -15px;
-  cursor: pointer;
+  cursor: pointer; 
 }
 
 .btn-custom-primary:hover {
-  background-color: #0056b3;
+  background-color: #0056b3; 
   color: #fff;
 }
 
@@ -227,41 +227,41 @@
 .image-preview-container img,
 .video-preview-container video {
   max-width: 100%;
-  height: 400px;
-  object-fit: cover;
+  height: 400px; 
+  object-fit: cover; 
   width: 500px;
   border-radius: 18px !important;
 }
 
-/* Boton de eliminar hacerlo responsive*/
+/* Boton de eliminar hacerlo responsive*/ 
 .btn-circle {
-  width: 8vw;
+  width: 8vw; 
   height: 8vw;
   max-width: 30px;
-  max-height: 30px;
+  max-height: 30px; 
   background-color: #121212a5;
   color: #dfdfdf;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  position: relative;
-  left: 427px;
-  top: -66vh;
+  border-radius: 50%; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  cursor: pointer; 
+  position: relative; 
+  left: 427px; 
+  top: -66vh; 
   transition: background-color 0.3s ease;
 }
 
 .btn-circle:hover {
-  background-color: #1212127d;
+  background-color: #1212127d; 
 }
 
 .btn-circle i {
-  font-size: 1vw;
+  font-size: 1vw; 
   color: inherit;
-  margin: 0;
-  padding: 0;
+  margin: 0; 
+  padding: 0; 
 }
 
 
@@ -271,29 +271,29 @@
   top: 35px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #333;
-  color: #fff;
-  padding: 5px 10px;
-  font-size: 0.6rem;
-  border-radius: 5px;
-  display: none;
+  background-color: #333; 
+  color: #fff; 
+  padding: 5px 10px; 
+  font-size: 0.6rem; 
+  border-radius: 5px; 
+  display: none; 
   z-index: 10;
 }
 
 .btn-tooltip:hover .tooltip-eliminar {
-  display: block;
+  display: block; 
 }
 
 //Boton input
 .btn-post {
-  background-color: #3C91E6;
+  background-color: #3C91E6; 
   color: #fff;
-  border: none;
+  border: none; 
   padding: 10px 20px;
-  font-size: 14px;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-size: 14px; 
+  border-radius: 25px; 
+  cursor: pointer; 
+  transition: background-color 0.3s ease; 
   margin-top: -4px;
   margin-left: 300px;
   margin-right: 0;
@@ -303,7 +303,62 @@
 }
 
 .btn-post:hover {
-  background-color: #0056b3;
+  background-color: #0056b3; 
+}
+
+
+.select-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+/* Estilización del select */
+.select-wrapper select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #f8f9fa;
+  color: #333;
+  font-size: 16px;
+  
+}
+
+/* Estilización del botón de cierre (X) */
+.select-wrapper .btn-close {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #aaa;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Estilización del botón "Seleccionar" */
+.btn-submit {
+  font-size: 14px;
+  padding: 5px 10px;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+/* Estilos adicionales */
+.card {
+  padding: 20px;
+}
+
+.form-label {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.input-group {
+  margin-bottom: 20px;
 }
 
 /* Responsive*/

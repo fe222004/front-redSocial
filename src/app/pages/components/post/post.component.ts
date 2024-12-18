@@ -19,7 +19,7 @@ export class PostComponent implements OnInit {
   imageSrc: string | ArrayBuffer | null = null; // Solo para imágenes
   videoSrc: string | ArrayBuffer | null = null; // Solo para videos
   isButtonVisible: boolean = false;
-
+  isCategorySelected: boolean = false;
 
   constructor(private translationService: TranslationService,) {
     this.form = this.buildForm();
@@ -47,6 +47,27 @@ export class PostComponent implements OnInit {
   chooseVideo() {
     const fileInputVideo = document.getElementById('fileInputVideo') as HTMLInputElement;
     fileInputVideo.click();
+  }
+  
+
+  chooseCategory(): void{
+    this.isCategorySelected = !this.isCategorySelected;
+  }
+
+  clearSelection() {
+    this.form.controls['tag'].setValue(''); // Limpia la selección
+  }
+  
+  getCategory(event: Event) {
+    const selectElement = event.target as HTMLSelectElement;
+    const selectedCategory = selectElement.value;
+    
+    if (selectedCategory) {
+      this.isCategorySelected = true;  // Marca que se ha seleccionado una categoría
+      this.form.get('tag')?.setValue(selectedCategory);  // Establece el valor del formulario
+    } else {
+      alert('Por favor, selecciona una categoría.');
+    }
   }
 
   getImageFile(event: Event) {
@@ -127,3 +148,5 @@ export class PostComponent implements OnInit {
     );
   }
 }
+
+//revisar el categoria

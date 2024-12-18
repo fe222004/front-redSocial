@@ -2,14 +2,13 @@
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="input-group mb-3">
       <!-- Imagen de perfil -->
-      <img class="rounded-circle profile-image"
-        src="https://i.pinimg.com/564x/40/76/79/407679d20088c659aba7a760c69dd7c3.jpg" alt="Profile Image">
+      <img class="rounded-circle profile-image" src="https://i.pinimg.com/564x/40/76/79/407679d20088c659aba7a760c69dd7c3.jpg" alt="Profile Image">
 
       <!-- Etiqueta ¿Qué está pensando? -->
       <input type="text" class="form-control" [placeholder]="'post.post-text' | translate" formControlName="text"
         style="border-radius: 35px;" [ngClass]="{ 'd-none': imageSrc || videoSrc }" />
 
-      <!-- Separador cuando n0 hay imagen o video seleccionado -->
+      <!-- Separador cuando no hay imagen o video seleccionado -->
       <div *ngIf="!imageSrc && !videoSrc" class="separator"></div>
 
       <!-- Campo de etiqueta si se selecciona imagen o video -->
@@ -28,28 +27,60 @@
           <i class="bi bi-image"></i>
           <span class="tooltip-text">Multimedia</span>
         </button>
-
+      
         <!-- Botón de video, solo visible cuando no se ha seleccionado imagen o video -->
         <button *ngIf="!imageSrc && !videoSrc" type="button" class="btn-select-post" (click)="chooseVideo()">
           <i class="bi bi-camera-video-fill"></i>
           <span class="tooltip-text">Video</span>
         </button>
 
+        <!-- Botón de categoría, solo visible cuando no se ha seleccionado imagen o video -->
+        <button *ngIf="!imageSrc && !videoSrc" type="button" class="btn-select-post" (click)="chooseCategory()">
+          <i class="bi bi-tags-fill"></i>
+          <span class="tooltip-text">Categoría</span>
+        </button>
 
+        <!-- Formulario de selección de categoría -->
+        <div *ngIf="isCategorySelected" class="card post-card category-card">
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="input-group mb-3">
+              <label for="category" class="form-label">Selecciona una categoría</label>
+              <div class="select-wrapper">
+                <select id="category" class="form-control" formControlName="tag">
+                  <option value="amigos">Amigos</option>
+                  <option value="familia">Familia</option>
+                  <option value="comida">Comida</option>
+                  <option value="trabajo">Trabajo</option>
+                  <option value="otros">Otros</option>
+                </select>
+                <button type="button" class="btn-close" (click)="clearSelection()">×</button> <!-- Icono X -->
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-submit">Seleccionar</button>
+          </form>
+        </div>
+        
+        
+      
         <!-- Botón de publicar, solo visible cuando el campo de texto tiene valor -->
         <button *ngIf="isButtonVisible" type="button" class="btn-post" (click)="onSubmit()">Postear</button>
       </div>
-
+      
       <!-- Contenedor para botones con la clase .btn-select-post2 -->
       <div class="button-group2" *ngIf="imageSrc || videoSrc">
         <button type="button" class="btn-select-post2" (click)="chooseImage()">
           <i class="bi bi-image"></i>
           <span class="tooltip-text">Multimedia</span>
         </button>
-
+      
         <button type="button" class="btn-select-post2" (click)="chooseVideo()">
           <i class="bi bi-camera-video-fill"></i>
           <span class="tooltip-text">Video</span>
+        </button>
+
+        <button type="button" class="btn-select-post2" (click)="chooseCategory()">
+          <i class="bi bi-tags-fill"></i>
+          <span class="tooltip-text">Categoría</span>
         </button>
       </div>
 
@@ -83,3 +114,5 @@
     </div>
   </form>
 </div>
+
+

@@ -67,14 +67,14 @@ export class LoginComponent {
     this.showMenuI = false;
   }
 
-  changeLanguage(language: 'en' | 'es', event: Event) {
-    event.preventDefault();
-    this.translationService.setLanguage(language);
-    this.currentLanguage = language;
-    this.closeMenu();
-  }
+    changeLanguage(language: 'en' | 'es', event: Event) {
+      event.preventDefault();
+      this.translationService.setLanguage(language);
+      this.currentLanguage = language;
+      this.closeMenu();
+    }
 
-  getFlagUrl(language: 'en' | 'es'): string {
-    return LanguageConstants[language];
+    getFlagUrl(language: 'en' | 'es'): string {
+      return LanguageConstants[language];
+    }
   }
-}
